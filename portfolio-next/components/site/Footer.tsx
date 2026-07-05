@@ -5,11 +5,7 @@ export function Footer() {
         <p className="mb-4 text-xs font-bold uppercase tracking-[0.12em] text-accent">
           CONTACT
         </p>
-        <h2 className="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-white">
-          Un projet en tête ?
-          <br />
-          Parlons-en.
-        </h2>
+        <h2 className="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-white"><span>Un projet en tête ?</span><br />Parlons-en.</h2>
         <p className="mb-10 text-[15px] leading-relaxed text-muted-2">
           Je réponds généralement sous 24h. Dites-moi ce que vous cherchez à
           construire, et on voit ensemble comment y arriver vite !
