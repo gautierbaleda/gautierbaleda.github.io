@@ -6,7 +6,7 @@ export function Realisations() {
   const [active, setActive] = useState<Project | null>(null);
 
   return (
-    <section className="rounded-[20px] px-12 py-10">
+    <section id="realisations" className="rounded-[20px] px-12 py-10">
       <div className="mb-10">
         <p className="mb-1 text-xs font-bold uppercase tracking-[0.1em] text-accent">
           MES RÉALISATIONS

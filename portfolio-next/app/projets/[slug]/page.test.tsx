@@ -3,7 +3,7 @@ import Page from "./page";
 import { projects } from "@/content/projects";
 import { notFound } from "next/navigation";
 
-vi.mock("next/navigation", () => ({ notFound: vi.fn() }));
+vi.mock("next/navigation", () => ({ notFound: vi.fn(), usePathname: () => "/projets/test" }));
 
 describe("Project detail page", () => {
   it("renders the project's long name and description", async () => {
