@@ -14,6 +14,7 @@ export function Playground() {
       <div className="grid grid-cols-3 gap-3">
         <PlaygroundCard
           span={2}
+          bg="linear-gradient(135deg, #F5E1A0, #EACB6E)"
           tool="Weweb"
           title="Tickly"
           description="Minuteur Pomodoro minimaliste avec sessions configurables et historique de productivité."
@@ -29,6 +30,7 @@ export function Playground() {
         <PlaygroundCard
           span={1}
           dark
+          bg="#CDDCF7"
           tool="Flutterflow"
           title="Tasks"
           description="To-do list mobile épurée, avec rappels et tri par priorité."
@@ -52,6 +54,7 @@ export function Playground() {
         <PlaygroundCard
           span={1}
           dark
+          bg="#BFEBD1"
           tool="Flutterflow"
           title="CoolFit"
           description="Suivi bien-être et activité physique au quotidien."
@@ -70,6 +73,7 @@ export function Playground() {
         <PlaygroundCard
           span={2}
           dark
+          bg="linear-gradient(135deg, #241B3D, #1A1030)"
           tool="Bubble"
           title="Kumai"
           description="Guide de voyage intelligent qui recommande destinations et itinéraires selon ton profil et ton budget."

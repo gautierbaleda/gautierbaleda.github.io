@@ -73,10 +73,6 @@ body {
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
@@ -96,10 +92,12 @@ body {
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  /* Portfolio brief overrides — these intentionally win over the shadcn
-     defaults set above for --accent/--muted so bg-accent/text-accent and
-     text-muted/bg-muted resolve to the design's exact tokens instead of
-     shadcn's default gray theme. */
+  /* Portfolio brief tokens for --accent/--muted (the shadcn oklch defaults
+     for these were removed above — declaring them twice in the same :root
+     block caused lightningcss's oklch fallback generation to reorder the
+     declarations, silently resurrecting the gray defaults at runtime) so
+     bg-accent/text-accent and text-muted/bg-muted resolve to the design's
+     exact tokens instead of shadcn's default gray theme. */
   --accent: #FFC800;
   --accent-foreground: #1D1D1F;
   --muted: #6E6E73;

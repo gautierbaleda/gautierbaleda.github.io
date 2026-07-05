@@ -9,6 +9,7 @@ export function PlaygroundCard({
   front,
   span,
   dark = false,
+  bg,
 }: {
   tool: string;
   title: string;
@@ -16,6 +17,7 @@ export function PlaygroundCard({
   front: React.ReactNode;
   span: 1 | 2;
   dark?: boolean;
+  bg?: string;
 }) {
   const { style, onMouseMove, onMouseLeave } = useTiltHover(8);
   const [flipped, setFlipped] = useState(false);
@@ -40,7 +42,7 @@ export function PlaygroundCard({
       >
         <div
           className="absolute inset-0 flex items-center justify-center transition-opacity duration-200"
-          style={{ opacity: flipped ? 0 : 1 }}
+          style={{ opacity: flipped ? 0 : 1, background: bg }}
         >
           {front}
         </div>
