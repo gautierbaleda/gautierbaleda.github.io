@@ -37,6 +37,7 @@ export function Realisations() {
             </div>
           ) : (
             <div className="flex h-full flex-col items-center justify-center gap-4">
+              <div className="umbreon-walker" />
               <p className="text-sm font-semibold text-[#8E8E93]">En attente…</p>
               <p className="text-xs text-[#B8B8BE]">Survole un projet</p>
             </div>

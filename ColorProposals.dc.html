@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="design_doc_mode" content="canvas">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Inter', system-ui, sans-serif; }
+
+  @keyframes gearCW  { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes gearCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+  .card-gears:hover .gear-spin-1 { animation: gearCW  3s linear infinite; }
+  .card-gears:hover .gear-spin-2 { animation: gearCCW 2.1s linear infinite; }
+
+  .card-bricks .brick { transition: transform 0.55s cubic-bezier(0.22,0.9,0.25,1); }
+  .card-bricks:hover .brick-a { transform: translate(12px, -28px); }
+  .card-bricks:hover .brick-b { transform: translate(-12px, -10px); }
+  .card-bricks:hover .brick-c { transform: translate(0, 28px); }
+
+  .card-code .code-left,
+  .card-code .code-right { transition: transform 0.45s cubic-bezier(0.22,0.9,0.25,1); }
+  .card-code .code-inner { opacity: 0; transform: scale(0.85); transform-box: fill-box; transform-origin: center; transition: opacity 0.35s ease 0.1s, transform 0.4s cubic-bezier(0.22,0.9,0.25,1) 0.1s; }
+  .card-code:hover .code-left  { transform: translateX(-34px); }
+  .card-code:hover .code-right { transform: translateX(34px); }
+  .card-code:hover .code-inner { opacity: 1; transform: scale(1); }
+
+  @keyframes rocketFloat  { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  @keyframes flameFlicker { 0%,100% { transform: scaleY(1); opacity:1; } 50% { transform: scaleY(1.18); opacity:0.82; } }
+  .card-rocket .rocket-flame { opacity:0; transform-box:fill-box; transform-origin:bottom center; transition:opacity 0.35s ease; }
+  .card-rocket:hover .rocket-flame { opacity:1; animation: flameFlicker 0.55s ease-in-out infinite; }
+  .card-rocket:hover .rocket-float { animation: rocketFloat 1.9s ease-in-out infinite; }
+
+  @keyframes heroCardFloat { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-9px); } }
+  .hero-card-wrap { display:inline-flex; position:relative; flex-shrink:0; cursor:pointer; }
+  .hero-card-wrap:nth-child(1) { animation: heroCardFloat 3.4s ease-in-out infinite 0.0s;  z-index:1; margin-right:-28px; }
+  .hero-card-wrap:nth-child(2) { animation: heroCardFloat 2.9s ease-in-out infinite 0.65s; z-index:2; margin-right:-28px; }
+  .hero-card-wrap:nth-child(3) { animation: heroCardFloat 3.7s ease-in-out infinite 1.3s;  z-index:3; margin-right:-28px; }
+  .hero-card-wrap:nth-child(4) { animation: heroCardFloat 3.1s ease-in-out infinite 0.45s; z-index:4; }
+  .hero-card-wrap:hover { animation-play-state: paused; }
+
+  .card-label {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 14px; text-align: center;
+    font-size: 17px; font-weight: 700; letter-spacing: -0.01em;
+    transform: translateY(110%); opacity: 0;
+    transition: transform 0.45s cubic-bezier(0.22,0.9,0.25,1), opacity 0.45s ease;
+    pointer-events: none;
+  }
+  .hero-card:hover .card-label { transform: translateY(0); opacity: 1; }
+</style>
+</helmet>
+
+<!-- ── FRAME LABEL helper ── -->
+
+<!-- ═══════════════════════════════
+     Proposition A — Variations Jaune
+     ═══════════════════════════════ -->
+<div style="position:absolute; left:60px; top:60px; width:900px;">
+  <p data-drags-parent="1" style="font-family:Inter,sans-serif; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#86868B; margin:0 0 10px;">Proposition A — Variations jaune</p>
+  <div style="background:#F7F5F0; border-radius:20px; box-shadow:0 2px 24px rgba(0,0,0,0.08); padding:48px 40px; display:flex; flex-direction:column; gap:24px; align-items:center;">
+
+    <!-- Cards row -->
+    <div style="display:flex; justify-content:center; align-items:center; padding:20px 0;">
+
+      <!-- C1 : jaune vif -->
+      <div class="hero-card-wrap">
+        <div class="hero-card card-bricks" style="position:relative;width:210px;height:210px;border-radius:28px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,0.15);transform:rotate(-7deg);background:#FFC800;display:flex;align-items:center;justify-content:center;">
+          <svg width="130" height="130" viewBox="0 0 100 100" fill="none">
+            <g class="brick brick-a"><path d="M38,44 L51.9,52 L38,60 L24.1,52 Z" fill="#1D1D1F"></path><path d="M51.9,52 L51.9,68 L38,76 L38,60 Z" fill="#1D1D1F" opacity="0.72"></path><path d="M24.1,52 L38,60 L38,76 L24.1,68 Z" fill="#1D1D1F" opacity="0.5"></path></g>
+            <g class="brick brick-b"><path d="M62,44 L75.9,52 L62,60 L48.1,52 Z" fill="#1D1D1F"></path><path d="M75.9,52 L75.9,68 L62,76 L62,60 Z" fill="#1D1D1F" opacity="0.72"></path><path d="M48.1,52 L62,60 L62,76 L48.1,68 Z" fill="#1D1D1F" opacity="0.5"></path></g>
+            <g class="brick brick-c"><path d="M50,24 L63.9,32 L50,40 L36.1,32 Z" fill="#1D1D1F"></path><path d="M63.9,32 L63.9,48 L50,56 L50,40 Z" fill="#1D1D1F" opacity="0.72"></path><path d="M36.1,32 L50,40 L50,56 L36.1,48 Z" fill="#1D1D1F" opacity="0.5"></path><circle cx="50" cy="32" r="2.6" fill="#FFC800"></circle></g>
+          </svg>
+          <span class="card-label" style="color:#1D1D1F;">Construire</span>
+        </div>
+      </div>
+
+      <!-- C2 : jaune clair -->
+      <div class="hero-card-wrap">
+        <div class="hero-card card-code" style="position:relative;width:210px;height:210px;border-radius:28px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,0.15);transform:rotate(5deg) translateY(-10px);background:#FFE57A;display:flex;align-items:center;justify-content:center;">
+          <svg width="130" height="130" viewBox="0 0 100 100" overflow="visible" fill="none" stroke="#1D1D1F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+            <path class="code-left"  d="M42,34 L28,50 L42,66"></path>
+            <path class="code-right" d="M58,34 L72,50 L58,66"></path>
+            <g class="code-inner" stroke="none" fill="#1D1D1F"><text x="50" y="53" text-anchor="middle" dominant-baseline="central" font-family="Inter,sans-serif" font-size="36" font-weight="800" letter-spacing="-1">/hey</text></g>
+          </svg>
+          <span class="card-label" style="color:#1D1D1F;">Développer</span>
+        </div>
+      </div>
+
+      <!-- C3 : jaune très pâle -->
+      <div class="hero-card-wrap">
+        <div class="hero-card card-gears" style="position:relative;width:210px;height:210px;border-radius:28px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,0.15);transform:rotate(-4deg) translateY(6px);background:#FFF3B0;display:flex;align-items:center;justify-content:center;">
+          <svg width="130" height="130" viewBox="0 0 100 100" fill="none">
+            <g transform="translate(40,56)"><g class="gear-spin-1" style="transform-box:fill-box;transform-origin:center;"><g fill="#1D1D1F"><rect x="-3.5" y="-21" width="7" height="7" rx="1.5"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(45)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(90)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(135)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(180)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(225)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(270)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(315)"></rect><circle cx="0" cy="0" r="16"></circle></g><circle cx="0" cy="0" r="6" fill="#FFF3B0"></circle></g></g>
+            <g transform="translate(66,38)"><g class="gear-spin-2" style="transform-box:fill-box;transform-origin:center;"><g fill="#1D1D1F"><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(45)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(90)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(135)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(180)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(225)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(270)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(315)"></rect><circle cx="0" cy="0" r="11"></circle></g><circle cx="0" cy="0" r="4" fill="#FFF3B0"></circle></g></g>
+          </svg>
+          <span class="card-label" style="color:#1D1D1F;">Automatiser</span>
+        </div>
+      </div>
+
+      <!-- C4 : noir -->
+      <div class="hero-card-wrap">
+        <div class="hero-card card-rocket" style="position:relative;width:210px;height:210px;border-radius:28px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,0.25);transform:rotate(8deg) translateY(-4px);background:#1D1D1F;display:flex;align-items:center;justify-content:center;">
+          <svg width="130" height="130" viewBox="0 0 100 100" fill="none">
+            <g transform="translate(0,10)"><g class="rocket-float">
+              <g class="rocket-flame"><path d="M44,63 L50,84 L56,63 Z" fill="#FF8A3D"></path><path d="M47,63 L50,76 L53,63 Z" fill="#FFC800"></path></g>
+              <g class="rocket-body"><path d="M41,53 L31,68 L41,63 Z" fill="#FFC800"></path><path d="M59,53 L69,68 L59,63 Z" fill="#FFC800"></path><path d="M50,14 C57,23 59,37 59,50 L59,63 L41,63 L41,50 C41,37 43,23 50,14 Z" fill="#FFC800"></path><circle cx="50" cy="38" r="6.5" fill="#1D1D1F"></circle></g>
+            </g></g>
+          </svg>
+          <span class="card-label" style="color:#FFC800;">Déployer</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Swatches -->
+    <div style="display:flex;gap:10px;align-items:center;">
+      <div style="display:flex;gap:6px;align-items:center;"><div style="width:28px;height:28px;border-radius:8px;background:#FFC800;"></div><span style="font-size:11px;color:#86868B;font-family:ui-monospace,monospace;">#FFC800</span></div>
+      <div style="display:flex;gap:6px;align-items:center;"><div style="width:28px;height:28px;border-radius:8px;background:#FFE57A;"></div><span style="font-size:11px;color:#86868B;font-family:ui-monospace,monospace;">#FFE57A</span></div>
+      <div style="display:flex;gap:6px;align-items:center;"><div style="width:28px;height:28px;border-radius:8px;background:#FFF3B0;"></div><span style="font-size:11px;color:#86868B;font-family:ui-monospace,monospace;">#FFF3B0</span></div>
+      <div style="display:flex;gap:6px;align-items:center;"><div style="width:28px;height:28px;border-radius:8px;background:#1D1D1F;"></div><span style="font-size:11px;color:#86868B;font-family:ui-monospace,monospace;">#1D1D1F</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     Proposition B — Noir & Or
+     ═══════════════════════════════ -->
+<div style="position:absolute; left:60px; top:460px; width:900px;">
+  <p data-drags-parent="1" style="font-family:Inter,sans-serif; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#86868B; margin:0 0 10px;">Proposition B — Noir &amp; Or (contraste maximal)</p>
+  <div style="background:#F7F5F0; border-radius:20px; box-shadow:0 2px 24px rgba(0,0,0,0.08); padding:48px 40px; display:flex; flex-direction:column; gap:24px; align-items:center;">
+
+    <div style="display:flex; justify-content:center; align-items:center; padding:20px 0;">
+
+      <!-- C1 : noir -->
+      <div class="hero-card-wrap">
+        <div class="hero-card card-bricks" style="position:relative;width:210px;height:210px;border-radius:28px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,0.25);transform:rotate(-7deg);background:#1D1D1F;display:flex;align-items:center;justify-content:center;">
+          <svg width="130" height="130" viewBox="0 0 100 100" fill="none">
+            <g class="brick brick-a"><path d="M38,44 L51.9,52 L38,60 L24.1,52 Z" fill="#FFC800"></path><path d="M51.9,52 L51.9,68 L38,76 L38,60 Z" fill="#FFC800" opacity="0.72"></path><path d="M24.1,52 L38,60 L38,76 L24.1,68 Z" fill="#FFC800" opacity="0.5"></path></g>
+            <g class="brick brick-b"><path d="M62,44 L75.9,52 L62,60 L48.1,52 Z" fill="#FFC800"></path><path d="M75.9,52 L75.9,68 L62,76 L62,60 Z" fill="#FFC800" opacity="0.72"></path><path d="M48.1,52 L62,60 L62,76 L48.1,68 Z" fill="#FFC800" opacity="0.5"></path></g>
+            <g class="brick brick-c"><path d="M50,24 L63.9,32 L50,40 L36.1,32 Z" fill="#FFC800"></path><path d="M63.9,32 L63.9,48 L50,56 L50,40 Z" fill="#FFC800" opacity="0.72"></path><path d="M36.1,32 L50,40 L50,56 L36.1,48 Z" fill="#FFC800" opacity="0.5"></path><circle cx="50" cy="32" r="2.6" fill="#1D1D1F"></circle></g>
+          </svg>
+          <span class="card-label" style="color:#FFC800;">Construire</span>
+        </div>
+      </div>
+
+      <!-- C2 : jaune vif -->
+      <div class="hero-card-wrap">
+        <div class="hero-card card-code" style="position:relative;width:210px;height:210px;border-radius:28px;overflow:hidden;box-shadow:0 18px 44px rgba(255,200,0,0.3);transform:rotate(5deg) translateY(-10px);background:#FFC800;display:flex;align-items:center;justify-content:center;">
+          <svg width="130" height="130" viewBox="0 0 100 100" overflow="visible" fill="none" stroke="#1D1D1F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+            <path class="code-left"  d="M42,34 L28,50 L42,66"></path>
+            <path class="code-right" d="M58,34 L72,50 L58,66"></path>
+            <g class="code-inner" stroke="none" fill="#1D1D1F"><text x="50" y="53" text-anchor="middle" dominant-baseline="central" font-family="Inter,sans-serif" font-size="36" font-weight="800" letter-spacing="-1">/hey</text></g>
+          </svg>
+          <span class="card-label" style="color:#1D1D1F;">Développer</span>
+        </div>
+      </div>
+
+      <!-- C3 : noir doux -->
+      <div class="hero-card-wrap">
+        <div class="hero-card card-gears" style="position:relative;width:210px;height:210px;border-radius:28px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,0.22);transform:rotate(-4deg) translateY(6px);background:#2C2C2E;display:flex;align-items:center;justify-content:center;">
+          <svg width="130" height="130" viewBox="0 0 100 100" fill="none">
+            <g transform="translate(40,56)"><g class="gear-spin-1" style="transform-box:fill-box;transform-origin:center;"><g fill="#FFC800"><rect x="-3.5" y="-21" width="7" height="7" rx="1.5"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(45)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(90)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(135)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(180)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(225)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(270)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(315)"></rect><circle cx="0" cy="0" r="16"></circle></g><circle cx="0" cy="0" r="6" fill="#2C2C2E"></circle></g></g>
+            <g transform="translate(66,38)"><g class="gear-spin-2" style="transform-box:fill-box;transform-origin:center;"><g fill="#FFC800"><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(45)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(90)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(135)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(180)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(225)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(270)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(315)"></rect><circle cx="0" cy="0" r="11"></circle></g><circle cx="0" cy="0" r="4" fill="#2C2C2E"></circle></g></g>
+          </svg>
+          <span class="card-label" style="color:#FFC800;">Automatiser</span>
+        </div>
+      </div>
+
+      <!-- C4 : jaune vif -->
+      <div class="hero-card-wrap">
+        <div class="hero-card card-rocket" style="position:relative;width:210px;height:210px;border-radius:28px;overflow:hidden;box-shadow:0 18px 44px rgba(255,200,0,0.28);transform:rotate(8deg) translateY(-4px);background:#FFC800;display:flex;align-items:center;justify-content:center;">
+          <svg width="130" height="130" viewBox="0 0 100 100" fill="none">
+            <g transform="translate(0,10)"><g class="rocket-float">
+              <g class="rocket-flame"><path d="M44,63 L50,84 L56,63 Z" fill="#FF8A3D"></path><path d="M47,63 L50,76 L53,63 Z" fill="#fff"></path></g>
+              <g class="rocket-body"><path d="M41,53 L31,68 L41,63 Z" fill="#1D1D1F"></path><path d="M59,53 L69,68 L59,63 Z" fill="#1D1D1F"></path><path d="M50,14 C57,23 59,37 59,50 L59,63 L41,63 L41,50 C41,37 43,23 50,14 Z" fill="#1D1D1F"></path><circle cx="50" cy="38" r="6.5" fill="#FFC800"></circle></g>
+            </g></g>
+          </svg>
+          <span class="card-label" style="color:#1D1D1F;">Déployer</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Swatches -->
+    <div style="display:flex;gap:10px;align-items:center;">
+      <div style="display:flex;gap:6px;align-items:center;"><div style="width:28px;height:28px;border-radius:8px;background:#1D1D1F;"></div><span style="font-size:11px;color:#86868B;font-family:ui-monospace,monospace;">#1D1D1F</span></div>
+      <div style="display:flex;gap:6px;align-items:center;"><div style="width:28px;height:28px;border-radius:8px;background:#FFC800;border:1px solid #E0E0E0;"></div><span style="font-size:11px;color:#86868B;font-family:ui-monospace,monospace;">#FFC800</span></div>
+      <div style="display:flex;gap:6px;align-items:center;"><div style="width:28px;height:28px;border-radius:8px;background:#2C2C2E;"></div><span style="font-size:11px;color:#86868B;font-family:ui-monospace,monospace;">#2C2C2E</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     Proposition C — Tons chauds neutres
+     ═══════════════════════════════ -->
+<div style="position:absolute; left:60px; top:860px; width:900px;">
+  <p data-drags-parent="1" style="font-family:Inter,sans-serif; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#86868B; margin:0 0 10px;">Proposition C — Tons chauds &amp; accent (discret)</p>
+  <div style="background:#F7F5F0; border-radius:20px; box-shadow:0 2px 24px rgba(0,0,0,0.08); padding:48px 40px; display:flex; flex-direction:column; gap:24px; align-items:center;">
+
+    <div style="display:flex; justify-content:center; align-items:center; padding:20px 0;">
+
+      <!-- C1 : crème chaud -->
+      <div class="hero-card-wrap">
+        <div class="hero-card card-bricks" style="position:relative;width:210px;height:210px;border-radius:28px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,0.12);transform:rotate(-7deg);background:#EDE9E0;display:flex;align-items:center;justify-content:center;">
+          <svg width="130" height="130" viewBox="0 0 100 100" fill="none">
+            <g class="brick brick-a"><path d="M38,44 L51.9,52 L38,60 L24.1,52 Z" fill="#1D1D1F"></path><path d="M51.9,52 L51.9,68 L38,76 L38,60 Z" fill="#1D1D1F" opacity="0.72"></path><path d="M24.1,52 L38,60 L38,76 L24.1,68 Z" fill="#1D1D1F" opacity="0.5"></path></g>
+            <g class="brick brick-b"><path d="M62,44 L75.9,52 L62,60 L48.1,52 Z" fill="#1D1D1F"></path><path d="M75.9,52 L75.9,68 L62,76 L62,60 Z" fill="#1D1D1F" opacity="0.72"></path><path d="M48.1,52 L62,60 L62,76 L48.1,68 Z" fill="#1D1D1F" opacity="0.5"></path></g>
+            <g class="brick brick-c"><path d="M50,24 L63.9,32 L50,40 L36.1,32 Z" fill="#1D1D1F"></path><path d="M63.9,32 L63.9,48 L50,56 L50,40 Z" fill="#1D1D1F" opacity="0.72"></path><path d="M36.1,32 L50,40 L50,56 L36.1,48 Z" fill="#1D1D1F" opacity="0.5"></path><circle cx="50" cy="32" r="2.6" fill="#FFC800"></circle></g>
+          </svg>
+          <span class="card-label" style="color:#1D1D1F;">Construire</span>
+        </div>
+      </div>
+
+      <!-- C2 : jaune accent -->
+      <div class="hero-card-wrap">
+        <div class="hero-card card-code" style="position:relative;width:210px;height:210px;border-radius:28px;overflow:hidden;box-shadow:0 18px 44px rgba(255,200,0,0.28);transform:rotate(5deg) translateY(-10px);background:#FFC800;display:flex;align-items:center;justify-content:center;">
+          <svg width="130" height="130" viewBox="0 0 100 100" overflow="visible" fill="none" stroke="#1D1D1F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+            <path class="code-left"  d="M42,34 L28,50 L42,66"></path>
+            <path class="code-right" d="M58,34 L72,50 L58,66"></path>
+            <g class="code-inner" stroke="none" fill="#1D1D1F"><text x="50" y="53" text-anchor="middle" dominant-baseline="central" font-family="Inter,sans-serif" font-size="36" font-weight="800" letter-spacing="-1">/hey</text></g>
+          </svg>
+          <span class="card-label" style="color:#1D1D1F;">Développer</span>
+        </div>
+      </div>
+
+      <!-- C3 : beige plus soutenu -->
+      <div class="hero-card-wrap">
+        <div class="hero-card card-gears" style="position:relative;width:210px;height:210px;border-radius:28px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,0.12);transform:rotate(-4deg) translateY(6px);background:#D9D4C8;display:flex;align-items:center;justify-content:center;">
+          <svg width="130" height="130" viewBox="0 0 100 100" fill="none">
+            <g transform="translate(40,56)"><g class="gear-spin-1" style="transform-box:fill-box;transform-origin:center;"><g fill="#1D1D1F"><rect x="-3.5" y="-21" width="7" height="7" rx="1.5"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(45)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(90)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(135)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(180)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(225)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(270)"></rect><rect x="-3.5" y="-21" width="7" height="7" rx="1.5" transform="rotate(315)"></rect><circle cx="0" cy="0" r="16"></circle></g><circle cx="0" cy="0" r="6" fill="#D9D4C8"></circle></g></g>
+            <g transform="translate(66,38)"><g class="gear-spin-2" style="transform-box:fill-box;transform-origin:center;"><g fill="#1D1D1F"><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(45)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(90)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(135)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(180)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(225)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(270)"></rect><rect x="-2.6" y="-15" width="5.2" height="5.5" rx="1.2" transform="rotate(315)"></rect><circle cx="0" cy="0" r="11"></circle></g><circle cx="0" cy="0" r="4" fill="#D9D4C8"></circle></g></g>
+          </svg>
+          <span class="card-label" style="color:#1D1D1F;">Automatiser</span>
+        </div>
+      </div>
+
+      <!-- C4 : noir -->
+      <div class="hero-card-wrap">
+        <div class="hero-card card-rocket" style="position:relative;width:210px;height:210px;border-radius:28px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,0.22);transform:rotate(8deg) translateY(-4px);background:#1D1D1F;display:flex;align-items:center;justify-content:center;">
+          <svg width="130" height="130" viewBox="0 0 100 100" fill="none">
+            <g transform="translate(0,10)"><g class="rocket-float">
+              <g class="rocket-flame"><path d="M44,63 L50,84 L56,63 Z" fill="#FF8A3D"></path><path d="M47,63 L50,76 L53,63 Z" fill="#FFC800"></path></g>
+              <g class="rocket-body"><path d="M41,53 L31,68 L41,63 Z" fill="#FFC800"></path><path d="M59,53 L69,68 L59,63 Z" fill="#FFC800"></path><path d="M50,14 C57,23 59,37 59,50 L59,63 L41,63 L41,50 C41,37 43,23 50,14 Z" fill="#FFC800"></path><circle cx="50" cy="38" r="6.5" fill="#1D1D1F"></circle></g>
+            </g></g>
+          </svg>
+          <span class="card-label" style="color:#FFC800;">Déployer</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Swatches -->
+    <div style="display:flex;gap:10px;align-items:center;">
+      <div style="display:flex;gap:6px;align-items:center;"><div style="width:28px;height:28px;border-radius:8px;background:#EDE9E0;border:1px solid #ddd;"></div><span style="font-size:11px;color:#86868B;font-family:ui-monospace,monospace;">#EDE9E0</span></div>
+      <div style="display:flex;gap:6px;align-items:center;"><div style="width:28px;height:28px;border-radius:8px;background:#FFC800;"></div><span style="font-size:11px;color:#86868B;font-family:ui-monospace,monospace;">#FFC800</span></div>
+      <div style="display:flex;gap:6px;align-items:center;"><div style="width:28px;height:28px;border-radius:8px;background:#D9D4C8;"></div><span style="font-size:11px;color:#86868B;font-family:ui-monospace,monospace;">#D9D4C8</span></div>
+      <div style="display:flex;gap:6px;align-items:center;"><div style="width:28px;height:28px;border-radius:8px;background:#1D1D1F;"></div><span style="font-size:11px;color:#86868B;font-family:ui-monospace,monospace;">#1D1D1F</span></div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>
