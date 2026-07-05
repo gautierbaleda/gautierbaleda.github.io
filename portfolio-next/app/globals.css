@@ -151,3 +151,76 @@ body {
     @apply font-sans;
   }
 }
+
+@keyframes cursorBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+@keyframes gearCW  { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes gearCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+.card-gears:hover .gear-spin-1 { animation: gearCW 3s linear infinite; }
+.card-gears:hover .gear-spin-2 { animation: gearCCW 2.1s linear infinite; }
+
+@keyframes rocketFloat  { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes flameFlicker { 0%,100% { transform: scaleY(1); opacity: 1; } 50% { transform: scaleY(1.18); opacity: 0.82; } }
+@keyframes smokeRise1   { 0% { transform: translateY(0) scale(1); opacity: 0.7; } 100% { transform: translateY(-14px) scale(1.6); opacity: 0; } }
+@keyframes smokeRise2   { 0% { transform: translateY(0) scale(1); opacity: 0.6; } 100% { transform: translateY(-12px) scale(1.5); opacity: 0; } }
+.card-rocket .rocket-flame   { opacity: 0; transform-box: fill-box; transform-origin: bottom center; transition: opacity 0.35s ease; }
+.card-rocket .rocket-streaks { opacity: 0; transition: opacity 0.35s ease 0.1s; }
+.card-rocket .smoke-puff     { opacity: 0; transition: opacity 0.3s ease; }
+.card-rocket:hover .rocket-flame   { opacity: 1; animation: flameFlicker 0.55s ease-in-out infinite; }
+.card-rocket:hover .rocket-streaks { opacity: 1; }
+.card-rocket:hover .smoke-puff     { animation: smokeRise1 1.1s ease-out infinite; }
+.card-rocket:hover .smoke-puff:nth-child(2) { animation: smokeRise2 1.1s ease-out 0.37s infinite; }
+.card-rocket:hover .smoke-puff:nth-child(3) { animation: smokeRise1 1.1s ease-out 0.7s infinite; }
+.card-rocket:hover .rocket-float   { animation: rocketFloat 1.9s ease-in-out infinite; }
+
+.card-code .code-left,
+.card-code .code-right { transition: transform 0.45s cubic-bezier(0.22,0.9,0.25,1); }
+.card-code .code-inner { opacity: 0; transform: scale(0.85); transform-box: fill-box; transform-origin: center; transition: opacity 0.1s ease, transform 0.12s ease; }
+.card-code:hover .code-left  { transform: translateX(-34px); }
+.card-code:hover .code-right { transform: translateX(34px); }
+.card-code:hover .code-inner { opacity: 1; transform: scale(1); transition: opacity 0.35s ease 0.1s, transform 0.4s cubic-bezier(0.22,0.9,0.25,1) 0.1s; }
+
+.card-bricks .brick { transition: transform 0.55s cubic-bezier(0.22,0.9,0.25,1); }
+.card-bricks:hover .brick-a { transform: translate(12px, -28px); }
+.card-bricks:hover .brick-b { transform: translate(-12px, -10px); }
+.card-bricks:hover .brick-c { transform: translate(0, 28px); }
+
+.card-label {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 16px; text-align: center;
+  font-size: 19px; font-weight: 700; letter-spacing: -0.01em; color: #1D1D1F;
+  transform: translateY(110%); opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.22,0.9,0.25,1), opacity 0.45s ease;
+  pointer-events: none;
+}
+.hero-card:hover .card-label { transform: translateY(0); opacity: 1; }
+.card-rocket .card-label { color: #FFC800; }
+
+@keyframes heroCardFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-9px); } }
+.hero-card-wrap { display: inline-flex; position: relative; flex-shrink: 0; cursor: pointer; }
+.hero-card-wrap:nth-child(1) { animation: heroCardFloat 3.4s ease-in-out infinite 0.0s; z-index: 1; margin-right: -28px; }
+.hero-card-wrap:nth-child(2) { animation: heroCardFloat 2.9s ease-in-out infinite 0.65s; z-index: 2; margin-right: -28px; }
+.hero-card-wrap:nth-child(3) { animation: heroCardFloat 3.7s ease-in-out infinite 1.3s; z-index: 3; margin-right: -28px; }
+.hero-card-wrap:nth-child(4) { animation: heroCardFloat 3.1s ease-in-out infinite 0.45s; z-index: 4; }
+.hero-card-wrap:hover { animation-play-state: paused; }
+
+@keyframes umbreonSprite { from { background-position-x: 0px; } to { background-position-x: -480px; } }
+.umbreon-walker {
+  width: 120px; height: 130px;
+  background-image: url("/images/sprites/umbreon.png");
+  background-size: 480px 130px;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  animation: umbreonSprite 0.6s steps(4) infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pharampSprite { from { background-position-x: 0px; } to { background-position-x: -480px; } }
+.pharamp-walker {
+  width: 120px; height: 153px;
+  background-image: url("/images/sprites/pharamp.png");
+  background-size: 480px 153px;
+  background-repeat: no-repeat;
+  animation: pharampSprite 0.8s steps(4) infinite;
+  flex-shrink: 0;
+}
