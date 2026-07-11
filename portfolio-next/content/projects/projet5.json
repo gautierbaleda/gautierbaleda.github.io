@@ -1,0 +1,24 @@
+{
+  "slug": "projet5",
+  "name": "Projet 5",
+  "longName": "Le super projet 5",
+  "description": "longue description",
+  "tags": [
+    "super"
+  ],
+  "bg": "#FFFFFF",
+  "textColor": "#000000",
+  "year": "2025",
+  "problematique": [
+    { "type": "paragraph", "children": [{ "text": "Problématique à préciser via le CMS." }] }
+  ],
+  "approche": [
+    { "type": "paragraph", "children": [{ "text": "Approche et solution à préciser via le CMS." }] }
+  ],
+  "features": [
+    { "icon": "zap", "title": "Fonctionnalité 1", "description": "Description à préciser via le CMS." },
+    { "icon": "layers", "title": "Fonctionnalité 2", "description": "Description à préciser via le CMS." }
+  ],
+  "screenshotsCount": 2,
+  "externalUrl": ""
+}

@@ -1,0 +1,22 @@
+{
+  "slug": "projet-un",
+  "name": "PROJET 1",
+  "longName": "Projet Un",
+  "description": "Description courte du projet, à préciser via le CMS.",
+  "tags": ["No-code"],
+  "bg": "#1A1A2E",
+  "textColor": "#FFFFFF",
+  "year": "2025",
+  "problematique": [
+    { "type": "paragraph", "children": [{ "text": "Problématique à préciser via le CMS." }] }
+  ],
+  "approche": [
+    { "type": "paragraph", "children": [{ "text": "Approche et solution à préciser via le CMS." }] }
+  ],
+  "features": [
+    { "icon": "zap", "title": "Fonctionnalité 1", "description": "Description à préciser via le CMS." },
+    { "icon": "layers", "title": "Fonctionnalité 2", "description": "Description à préciser via le CMS." }
+  ],
+  "screenshotsCount": 2,
+  "externalUrl": ""
+}

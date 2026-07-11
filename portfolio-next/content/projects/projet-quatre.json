@@ -1,0 +1,22 @@
+{
+  "slug": "projet-quatre",
+  "name": "PROJET 4",
+  "longName": "Projet Quatre",
+  "description": "Description courte du projet, à préciser via le CMS.",
+  "tags": ["Design"],
+  "bg": "#2D0015",
+  "textColor": "#FFFFFF",
+  "year": "2025",
+  "problematique": [
+    { "type": "paragraph", "children": [{ "text": "Problématique à préciser via le CMS." }] }
+  ],
+  "approche": [
+    { "type": "paragraph", "children": [{ "text": "Approche et solution à préciser via le CMS." }] }
+  ],
+  "features": [
+    { "icon": "zap", "title": "Fonctionnalité 1", "description": "Description à préciser via le CMS." },
+    { "icon": "layers", "title": "Fonctionnalité 2", "description": "Description à préciser via le CMS." }
+  ],
+  "screenshotsCount": 2,
+  "externalUrl": ""
+}
