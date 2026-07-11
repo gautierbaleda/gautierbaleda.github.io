@@ -215,6 +215,14 @@ body {
 .hero-section.hero-visible .hero-h2,
 .hero-section.hero-visible .hero-subtitle { opacity: 1; transform: translateY(0); }
 
+.project-detail-reveal {
+  transform: translateX(100%);
+  transition: transform 0.48s cubic-bezier(0.22, 0.9, 0.25, 1);
+}
+.project-detail-reveal.project-detail-reveal-visible {
+  transform: translateX(0);
+}
+
 @keyframes umbreonSprite { from { background-position-x: 0px; } to { background-position-x: -480px; } }
 .umbreon-walker {
   width: 120px; height: 130px;
