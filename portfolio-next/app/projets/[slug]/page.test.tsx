@@ -12,8 +12,8 @@ describe("Project detail page", () => {
     render(await Page({ params: Promise.resolve({ slug: withLink.slug }) }));
 
     expect(
-      screen.getAllByRole("link", { name: "Projets" }).find((el) => el.getAttribute("href") === "/projets")
-    ).toHaveAttribute("href", "/projets");
+      screen.getAllByRole("link", { name: "Projets" }).find((el) => el.getAttribute("href") === "/#projets")
+    ).toHaveAttribute("href", "/#projets");
     expect(screen.getByText(withLink.longName)).toBeInTheDocument();
     expect(screen.getByText(withLink.year)).toBeInTheDocument();
     // description is rendered twice (hero + editorial intro), hence getAllByText

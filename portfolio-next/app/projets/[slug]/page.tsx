@@ -52,7 +52,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             className="sticky top-[100px] z-10 flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold"
             style={{ backdropFilter: "blur(12px)", background: "rgba(247,245,240,0.75)" }}
           >
-            <Link href="/projets" className="text-accent">
+            <Link href="/#projets" className="text-accent">
               Projets
             </Link>
             <span className="text-muted-2">/</span>
