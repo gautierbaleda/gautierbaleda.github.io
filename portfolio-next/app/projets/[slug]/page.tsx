@@ -100,7 +100,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
               {project.features.map((feature) => {
                 const Icon = FEATURE_ICONS[feature.icon] ?? Zap;
                 return (
-                  <div key={feature.title} className="rounded-2xl bg-page p-6">
+                  <div key={feature.title} className="rounded-2xl bg-card p-6">
                     <Icon size={36} className="mb-3 text-accent" />
                     <h3 className="mb-1 font-bold text-ink">{feature.title}</h3>
                     <p className="text-sm text-muted-2">{feature.description}</p>
@@ -126,7 +126,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
               )}
               <Link
                 href="/#contact"
-                className="rounded-2xl bg-page px-8 py-4 text-[15px] font-bold text-ink"
+                className="rounded-2xl bg-card px-8 py-4 text-[15px] font-bold text-ink"
               >
                 Me contacter
               </Link>
