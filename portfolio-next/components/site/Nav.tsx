@@ -1,16 +1,42 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const LINKS = [
-  { href: "/", label: "Accueil" },
-  { href: "/#projets", label: "Projets" },
-  { href: "/#play", label: "Playground" },
-  { href: "/a-propos", label: "À Propos" },
+  { href: "/", label: "Accueil", sectionId: null as string | null },
+  { href: "/#projets", label: "Projets", sectionId: "projets" },
+  { href: "/#play", label: "Playground", sectionId: "play" },
+  { href: "/a-propos", label: "À Propos", sectionId: null as string | null },
 ];
+
+const SCROLL_SPY_SECTION_IDS = ["projets", "play"];
 
 export function Nav() {
   const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const sections = SCROLL_SPY_SECTION_IDS.map((id) => document.getElementById(id)).filter(
+      (el): el is HTMLElement => el !== null,
+    );
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        setActiveSection(visible.length > 0 ? visible[0].target.id : null);
+      },
+      { rootMargin: "-100px 0px -70% 0px" },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-50 flex h-[100px] w-full items-center justify-center px-12">
@@ -23,7 +49,12 @@ export function Nav() {
         </Link>
         <div className="hidden items-center gap-1 md:flex">
           {LINKS.map((l) => {
-            const active = l.href === "/" ? pathname === "/" : pathname === l.href;
+            const active =
+              pathname === "/"
+                ? l.sectionId
+                  ? activeSection === l.sectionId
+                  : activeSection === null && l.href === "/"
+                : pathname === l.href;
             return (
               <Link
                 key={l.href}

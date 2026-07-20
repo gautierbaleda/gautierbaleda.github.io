@@ -1,0 +1,16 @@
+{
+  "title": "Epic Rubic",
+  "visible": true,
+  "ordre": 400,
+  "tools": [
+    "Claude code",
+    "JavaScript",
+    "HTML5 Canvas",
+    "Ruby"
+  ],
+  "description": "Mini-RPG textuel en français devenu jeu pixel-art HTML5 Canvas — exploration, combats et boss final, avec un portage Ruby/Gosu.",
+  "image": null,
+  "githubUrl": "https://github.com/DoubleRiz/Epic-rubic",
+  "externalUrl": "",
+  "bg": "#241B3D"
+}

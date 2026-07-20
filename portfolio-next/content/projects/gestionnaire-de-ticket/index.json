@@ -1,0 +1,49 @@
+{
+  "slug": "gestionnaire-de-ticket",
+  "visible": true,
+  "ordre": 5,
+  "name": "Gestionnaire de ticket",
+  "longName": "Gestionnaire de ticket — Support client automatisé",
+  "description": "Système de suivi de tickets de support automatisé — priorisation par score, validation d'email et gestion des délais, via Airtable, Fillout et Make.",
+  "hoverImage": "/images/projects/hover/gestionnaire-de-ticket/hoverImage.png",
+  "tags": [
+    "Airtable",
+    "Fillout",
+    "Make",
+    "SLA"
+  ],
+  "bg": "#2B1010",
+  "textColor": "#FFFFFF",
+  "year": "2026",
+  "features": [
+    {
+      "icon": "zap",
+      "title": "Priorisation automatique par score",
+      "description": "Un score calculé à partir des réponses du formulaire détermine la priorité du ticket (faible, moyenne, forte)."
+    },
+    {
+      "icon": "shield",
+      "title": "Validation d'email et stand-by",
+      "description": "Les demandes avec un email invalide sont mises en attente et redirigées vers un formulaire de correction."
+    },
+    {
+      "icon": "layers",
+      "title": "Gestion des délais SLA",
+      "description": "Deadline calculée selon la priorité, avec alerte et repriorisation automatique en cas de dépassement."
+    },
+    {
+      "icon": "code",
+      "title": "Suivi client via QR code",
+      "description": "Un QR code unique par client renvoie vers une page de suivi du statut de sa demande."
+    }
+  ],
+  "screenshots": [
+    "/images/projects/screenshots/gestionnaire-de-ticket/screenshots/0.png",
+    "/images/projects/screenshots/gestionnaire-de-ticket/screenshots/1.png",
+    "/images/projects/screenshots/gestionnaire-de-ticket/screenshots/2.png",
+    "/images/projects/screenshots/gestionnaire-de-ticket/screenshots/3.png",
+    "/images/projects/screenshots/gestionnaire-de-ticket/screenshots/4.png",
+    "/images/projects/screenshots/gestionnaire-de-ticket/screenshots/5.png",
+    "/images/projects/screenshots/gestionnaire-de-ticket/screenshots/6.png"
+  ]
+}

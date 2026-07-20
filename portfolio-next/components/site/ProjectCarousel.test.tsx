@@ -3,7 +3,11 @@ import { ProjectCarousel } from "./ProjectCarousel";
 
 describe("ProjectCarousel", () => {
   it("shows the counter and navigates with next/prev and dots", () => {
-    render(<ProjectCarousel screenshotsCount={3} bg="#1A1A2E" />);
+    render(
+      <ProjectCarousel
+        screenshots={["/images/projects/screenshots/one.png", "/images/projects/screenshots/two.png", "/images/projects/screenshots/three.png"]}
+      />
+    );
 
     expect(screen.getByText("1 / 3")).toBeInTheDocument();
 

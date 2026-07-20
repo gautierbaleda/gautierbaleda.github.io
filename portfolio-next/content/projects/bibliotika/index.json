@@ -1,0 +1,34 @@
+{
+  "slug": "bibliotika",
+  "visible": false,
+  "ordre": 1000,
+  "name": "Bibliotika",
+  "longName": "Bibliotika — Bibliothèque musicale centralisée",
+  "description": "Synchronisation automatique d'une playlist Spotify vers Notion pour centraliser accords, paroles et tonalités de chaque chanson en un seul endroit.",
+  "tags": [
+    "Make",
+    "Spotify API",
+    "Notion API"
+  ],
+  "bg": "#24301C",
+  "textColor": "#FFFFFF",
+  "year": "2025",
+  "features": [
+    {
+      "icon": "zap",
+      "title": "Synchronisation Spotify → Notion",
+      "description": "Chaque ajout à la playlist Spotify crée automatiquement une fiche dans la base Notion."
+    },
+    {
+      "icon": "layers",
+      "title": "Centralisation accords, paroles, tonalité",
+      "description": "Toutes les informations utiles d'une chanson rassemblées en une seule fiche consultable."
+    },
+    {
+      "icon": "users",
+      "title": "Recherche et consultation rapide",
+      "description": "Retrouver n'importe quelle chanson instantanément avant ou pendant une soirée musicale."
+    }
+  ],
+  "screenshots": []
+}

@@ -1,31 +1,42 @@
 "use client";
 import { useState } from "react";
+import type { DocumentElement } from "@keystatic/core";
 import { useTiltHover } from "@/lib/useTiltHover";
+import { PlaygroundDetailDialog } from "./PlaygroundDetailDialog";
 
 export function PlaygroundCard({
   tool,
+  tools,
   title,
   description,
+  descriptionLongue,
+  image,
+  githubUrl,
+  externalUrl,
   front,
-  span,
   dark = false,
   bg,
 }: {
   tool: string;
+  tools: string[];
   title: string;
   description: string;
+  descriptionLongue: DocumentElement[];
+  image: string | null;
+  githubUrl: string;
+  externalUrl: string;
   front: React.ReactNode;
-  span: 1 | 2;
   dark?: boolean;
   bg?: string;
 }) {
   const { style, onMouseMove, onMouseLeave } = useTiltHover(8);
   const [flipped, setFlipped] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <div
       data-testid={`playground-card-${title}`}
-      className={`relative h-[300px] cursor-pointer rounded-2xl ${span === 2 ? "col-span-2" : ""}`}
+      className="relative aspect-square w-full cursor-pointer rounded-2xl"
       style={{ ...style, transition: "transform 0.1s ease", cursor: "pointer" }}
       onMouseMove={(e) => {
         onMouseMove(e);
@@ -35,6 +46,7 @@ export function PlaygroundCard({
         onMouseLeave();
         setFlipped(false);
       }}
+      onClick={() => setOpen(true)}
     >
       <div
         className="absolute inset-0 overflow-hidden rounded-2xl transition-transform duration-500"
@@ -68,6 +80,17 @@ export function PlaygroundCard({
           </div>
         </div>
       </div>
+      <PlaygroundDetailDialog
+        open={open}
+        onOpenChange={setOpen}
+        title={title}
+        tools={tools}
+        image={image}
+        bg={bg ?? "#F7F5F0"}
+        descriptionLongue={descriptionLongue}
+        githubUrl={githubUrl}
+        externalUrl={externalUrl}
+      />
     </div>
   );
 }

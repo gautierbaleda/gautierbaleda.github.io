@@ -8,13 +8,43 @@ export default config({
     projects: collection({
       label: "Projets",
       slugField: "slug",
-      path: "content/projects/*",
+      path: "content/projects/*/",
       format: { data: "json" },
       schema: {
         slug: fields.slug({ name: { label: "Slug" } }),
+        visible: fields.checkbox({
+          label: "Visible",
+          description: "Décoche pour masquer ce projet du site public.",
+          defaultValue: true,
+        }),
+        ordre: fields.integer({
+          label: "Ordre",
+          description: "Détermine l'ordre d'affichage des projets (croissant).",
+          defaultValue: 100,
+          validation: { isRequired: true },
+        }),
         name: fields.text({ label: "Nom court" }),
         longName: fields.text({ label: "Nom long" }),
-        description: fields.text({ label: "Description", multiline: true }),
+        description: fields.text({
+          label: "Description courte",
+          description: "Affichée sur la carte et en haut de la page projet.",
+          multiline: true,
+        }),
+        hoverImage: fields.image({
+          label: "Visuel au survol",
+          description: "Format portrait 2:3 (ex. 1000x1500px), affiché dans le panneau au survol de la liste des projets.",
+          directory: "public/images/projects/hover",
+          publicPath: "/images/projects/hover/",
+        }),
+        descriptionLongue: fields.document({
+          label: "Description longue",
+          description: "Décrit plus en détail ce que fait la solution, fonctionnellement.",
+          formatting: true,
+          images: {
+            directory: "public/images/projects",
+            publicPath: "/images/projects/",
+          },
+        }),
         tags: fields.array(fields.text({ label: "Tag" }), {
           label: "Tags",
           itemLabel: (props) => props.value,
@@ -60,11 +90,18 @@ export default config({
             itemLabel: (props) => props.fields.title.value,
           }
         ),
-        screenshotsCount: fields.integer({
-          label: "Nombre de captures d'écran",
-          defaultValue: 1,
-          validation: { isRequired: true, min: 1, max: 3 },
-        }),
+        screenshots: fields.array(
+          fields.image({
+            label: "Capture d'écran",
+            directory: "public/images/projects/screenshots",
+            publicPath: "/images/projects/screenshots/",
+          }),
+          {
+            label: "Captures d'écran",
+            description: "Affichées dans le carrousel de la page projet.",
+            itemLabel: (props) => props.value?.filename ?? "Capture d'écran",
+          }
+        ),
         externalUrl: fields.text({
           label: "Lien externe (bouton \"Voir le projet\")",
           description: "Laisser vide pour masquer le bouton.",
@@ -74,12 +111,47 @@ export default config({
     playground: collection({
       label: "Playground",
       slugField: "title",
-      path: "content/playground/*",
+      path: "content/playground/*/",
       format: { data: "json" },
       schema: {
         title: fields.slug({ name: { label: "Titre" } }),
-        tool: fields.text({ label: "Outil" }),
-        description: fields.text({ label: "Description", multiline: true }),
+        visible: fields.checkbox({
+          label: "Visible",
+          description: "Décoche pour masquer ce projet du site public.",
+          defaultValue: true,
+        }),
+        ordre: fields.integer({
+          label: "Ordre",
+          description: "Détermine l'ordre d'affichage (croissant).",
+          defaultValue: 100,
+          validation: { isRequired: true },
+        }),
+        tools: fields.array(fields.text({ label: "Outil" }), {
+          label: "Outils utilisés",
+          itemLabel: (props) => props.value,
+        }),
+        description: fields.text({ label: "Description courte", multiline: true }),
+        descriptionLongue: fields.document({
+          label: "Description longue",
+          formatting: true,
+          images: {
+            directory: "public/images/playground",
+            publicPath: "/images/playground/",
+          },
+        }),
+        image: fields.image({
+          label: "Image",
+          directory: "public/images/playground",
+          publicPath: "/images/playground/",
+        }),
+        githubUrl: fields.text({
+          label: "Lien GitHub",
+          description: "Laisser vide pour masquer le lien.",
+        }),
+        externalUrl: fields.text({
+          label: "Lien externe (bouton \"Tester le projet\")",
+          description: "Laisser vide pour masquer le bouton.",
+        }),
         bg: fields.text({ label: "Couleur de fond (hex)" }),
       },
     }),

@@ -1,0 +1,17 @@
+{
+  "title": "Morpion multijoueur",
+  "visible": true,
+  "ordre": 700,
+  "tools": [
+    "Claude code",
+    "Node.js",
+    "Express",
+    "Socket.io",
+    "JavaScript"
+  ],
+  "description": "Morpion en temps réel dans le navigateur — matchmaking automatique et parties synchronisées via Socket.io, serveur autoritaire.",
+  "image": null,
+  "githubUrl": "https://github.com/DoubleRiz/morpion-multi",
+  "externalUrl": "",
+  "bg": "#1B2A4A"
+}

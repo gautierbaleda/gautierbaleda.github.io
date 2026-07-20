@@ -1,0 +1,15 @@
+{
+  "title": "Chromapix",
+  "visible": true,
+  "ordre": 500,
+  "tools": [
+    "Claude code",
+    "JavaScript",
+    "Chrome Extension"
+  ],
+  "description": "Extension Chrome qui extrait une palette de 5 couleurs (avec noms en français) depuis n'importe quelle zone sélectionnée d'une page web.",
+  "image": null,
+  "githubUrl": "https://github.com/DoubleRiz/chromapix",
+  "externalUrl": "",
+  "bg": "#1D1D1F"
+}

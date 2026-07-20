@@ -1,0 +1,14 @@
+Le système repose sur cinq tables Airtable reliées entre elles : Étudiants, Inscriptions, Cours, Sessions de formation et Présences. Chaque inscription — via un formulaire Fillout qui reconnaît l'identité de l'étudiant — génère automatiquement les enregistrements de présence pour toutes les sessions du cours choisi.
+
+Le suivi des présences est automatisé : chaque matin, un scénario Make vérifie s'il y a une session prévue et envoie un formulaire de confirmation aux étudiants concernés, dont les réponses alimentent directement la table Présences.
+
+Deux interfaces Airtable distinctes ont été construites : une vue administrative avec tableau de bord de présence et calendrier des sessions pour l'équipe pédagogique, et une interface simplifiée pour les étudiants (planning, trombinoscope, descriptifs de cours).
+
+Ce que ça fait en pratique :\
+\
+
+- À l’inscription d’un étudiant, les fiches de présence sont générées automatiquement pour chaque session\
+- Le jour J, le professeur marque simplement l’étudiant présent\
+- Un email est envoyé automatiquement avec un lien individuel\
+- L’étudiant confirme sa présence en un clic\
+- La présence est validée et tracée, en temps réel, côté administration

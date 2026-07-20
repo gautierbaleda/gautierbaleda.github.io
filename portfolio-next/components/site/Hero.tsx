@@ -10,13 +10,28 @@ const CARDS: { variant: "bricks" | "code" | "gears" | "rocket"; label: string }[
   { variant: "rocket", label: "Déployer" },
 ];
 
+const GREETINGS = [
+  "HELLO WORLD...",
+  "BONJOUR LE MONDE...",
+  "MANAO AHOANA DAHOLO...",
+  "HELLO WORLD ! JE SUIS",
+];
+
 export function Hero() {
-  const typed = useTypingEffect(["Hello world 👋"], { typeSpeedMs: 60, pauseMs: 4000 });
+  const { text: typed } = useTypingEffect(GREETINGS, { typeSpeedMs: 60 });
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const id = requestAnimationFrame(() => setVisible(true));
-    return () => cancelAnimationFrame(id);
+    // Double rAF: a single rAF can fire before the browser paints the
+    // initial (invisible) state, so the fade-in transition never renders.
+    let innerId = 0;
+    const outerId = requestAnimationFrame(() => {
+      innerId = requestAnimationFrame(() => setVisible(true));
+    });
+    return () => {
+      cancelAnimationFrame(outerId);
+      cancelAnimationFrame(innerId);
+    };
   }, []);
 
   return (

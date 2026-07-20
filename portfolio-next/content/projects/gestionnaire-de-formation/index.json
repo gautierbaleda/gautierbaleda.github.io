@@ -1,0 +1,40 @@
+{
+  "slug": "gestionnaire-de-formation",
+  "visible": true,
+  "ordre": 3,
+  "name": "Gestionnaire de formation",
+  "longName": "Gestionnaire de formation — Suivi de cours et présences",
+  "description": "Système de gestion de formation en ligne — suivi des cours, inscriptions et présences automatisées, construit avec Airtable, Fillout et Make.",
+  "hoverImage": "/images/projects/hover/gestionnaire-de-formation/hoverImage.png",
+  "tags": [
+    "Airtable",
+    "Fillout",
+    "Make"
+  ],
+  "bg": "#2B1D0D",
+  "textColor": "#FFFFFF",
+  "year": "2026",
+  "features": [
+    {
+      "icon": "layers",
+      "title": "Inscription automatisée",
+      "description": "Un formulaire Fillout crée l'inscription et génère automatiquement les présences liées à chaque session du cours."
+    },
+    {
+      "icon": "zap",
+      "title": "Suivi des présences en temps réel",
+      "description": "Envoi automatique quotidien d'un formulaire de confirmation de présence, synchronisé avec la base."
+    },
+    {
+      "icon": "code",
+      "title": "Tableau de bord par cours et session",
+      "description": "Vue groupée par sujet ou niveau, avec calendrier des sessions et suivi des présences à valider."
+    },
+    {
+      "icon": "users",
+      "title": "Interface dédiée aux étudiants",
+      "description": "Planning, trombinoscope et descriptifs de cours accessibles dans une interface simplifiée."
+    }
+  ],
+  "screenshots": []
+}

@@ -10,9 +10,13 @@ export type ProjectFeature = {
 
 export type Project = {
   slug: string;
+  visible: boolean;
+  ordre: number;
   name: string;
   longName: string;
   description: string;
+  hoverImage: string | null;
+  descriptionLongue: () => Promise<DocumentElement[]>;
   tags: string[];
   bg: string;
   textColor: string;
@@ -20,7 +24,7 @@ export type Project = {
   problematique: () => Promise<DocumentElement[]>;
   approche: () => Promise<DocumentElement[]>;
   features: ProjectFeature[];
-  screenshotsCount: number;
+  screenshots: string[];
   externalUrl: string;
 };
 
@@ -36,11 +40,19 @@ function toProject(slug: string, entry: Awaited<ReturnType<typeof reader.collect
     ? entry!.approche
     : () => Promise.resolve(entry!.approche as DocumentElement[]);
 
+  const descriptionLongue = typeof entry!.descriptionLongue === 'function'
+    ? entry!.descriptionLongue
+    : () => Promise.resolve(entry!.descriptionLongue as DocumentElement[]);
+
   return {
     slug,
+    visible: entry!.visible,
+    ordre: entry!.ordre,
     name: entry!.name,
     longName: entry!.longName,
     description: entry!.description,
+    hoverImage: entry!.hoverImage ?? null,
+    descriptionLongue,
     tags: [...entry!.tags],
     bg: entry!.bg,
     textColor: entry!.textColor,
@@ -48,14 +60,24 @@ function toProject(slug: string, entry: Awaited<ReturnType<typeof reader.collect
     problematique,
     approche,
     features: entry!.features.map((f) => ({ icon: f.icon, title: f.title, description: f.description })),
-    screenshotsCount: entry!.screenshotsCount,
+    screenshots: entry!.screenshots.filter((s): s is string => Boolean(s)),
     externalUrl: entry!.externalUrl,
   };
 }
 
 export async function getProjects(): Promise<Project[]> {
   const entries = await reader.collections.projects.all();
-  return entries.map(({ slug, entry }) => toProject(slug, entry));
+  return entries
+    .map(({ slug, entry }) => toProject(slug, entry))
+    .filter((project) => project.visible)
+    .sort((a, b) => a.ordre - b.ordre);
+}
+
+export type ProjectSummary = Omit<Project, "problematique" | "approche" | "descriptionLongue">;
+
+export async function getProjectSummaries(): Promise<ProjectSummary[]> {
+  const projects = await getProjects();
+  return projects.map(({ problematique, approche, descriptionLongue, ...summary }) => summary);
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | undefined> {

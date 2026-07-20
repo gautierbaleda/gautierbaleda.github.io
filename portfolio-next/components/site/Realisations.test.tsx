@@ -1,21 +1,22 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Realisations } from "./Realisations";
-import type { Project } from "@/content/projects";
+import type { ProjectSummary } from "@/content/projects";
 
-const projects: Project[] = [
+const projects: ProjectSummary[] = [
   {
     slug: "projet-un",
+    visible: true,
+    ordre: 1,
     name: "PROJET 1",
     longName: "Projet Un",
     description: "Description courte.",
+    hoverImage: null,
     tags: ["No-code"],
     bg: "#1A1A2E",
     textColor: "#FFFFFF",
     year: "2025",
-    problematique: async () => [],
-    approche: async () => [],
     features: [],
-    screenshotsCount: 1,
+    screenshots: [],
     externalUrl: "",
   },
 ];

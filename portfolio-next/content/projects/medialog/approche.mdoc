@@ -1,0 +1,5 @@
+Un agent IA interne (modèle Qwen 2.5 7B en local via LM Studio) épaule l'équipe opérationnelle sur trois fonctions reliées à des scénarios Make : consultation de la base intervenants/conférences, mise à jour des statuts, et envoi de rappels par email pour les échéances à moins de deux semaines.
+
+La fiabilité était le cœur du cahier des charges : interdiction stricte d'halluciner (l'agent déclare son ignorance si l'info n'est pas en base), envois strictement individuels pour préserver la confidentialité, et validation humaine obligatoire avant chaque email — l'agent présente systématiquement un brouillon avec destinataires et justification avant d'agir.
+
+Le système a été testé sur des scénarios de consultation, de modification, d'envoi ciblé et d'envoi automatisé multi-destinataires (calcul de dates, personnalisation sans balises vides, validation préalable) — tous validés.

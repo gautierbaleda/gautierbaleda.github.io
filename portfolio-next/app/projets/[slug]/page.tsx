@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { Code, Layers, Rocket, Shield, Users, Zap, type LucideIcon } from "lucide-react";
 import { DocumentRenderer } from "@keystatic/core/renderer";
@@ -41,7 +42,11 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     return null;
   }
 
-  const [problematique, approche] = await Promise.all([project.problematique(), project.approche()]);
+  const [problematique, approche, descriptionLongue] = await Promise.all([
+    project.problematique(),
+    project.approche(),
+    project.descriptionLongue(),
+  ]);
 
   return (
     <ProjectDetailReveal>
@@ -76,14 +81,28 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                 </span>
               ))}
             </div>
-            <div
-              className="mx-auto mt-10 h-[260px] max-w-[680px] rounded-2xl"
-              style={{ background: "rgba(255,255,255,0.12)" }}
-            />
+            {project.hoverImage ? (
+              <div className="relative mx-auto mt-10 aspect-[2/3] w-full max-w-[320px] overflow-hidden rounded-2xl">
+                <Image
+                  src={project.hoverImage}
+                  alt={project.longName}
+                  fill
+                  sizes="320px"
+                  className="object-cover"
+                />
+              </div>
+            ) : (
+              <div
+                className="mx-auto mt-10 h-[260px] max-w-[680px] rounded-2xl"
+                style={{ background: "rgba(255,255,255,0.12)" }}
+              />
+            )}
           </section>
 
           <div className="px-2 py-12">
-            <p className="mb-8 text-[15px] leading-relaxed text-muted-2">{project.description}</p>
+            <div className="mb-8">
+              <DocumentRenderer document={descriptionLongue} renderers={richTextRenderers} />
+            </div>
 
             <h2 className="mb-3 text-2xl font-extrabold tracking-tight text-ink">Problématique</h2>
             <DocumentRenderer document={problematique} renderers={richTextRenderers} />
@@ -109,9 +128,11 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
               })}
             </div>
 
-            <div className="mt-10">
-              <ProjectCarousel screenshotsCount={project.screenshotsCount} bg={project.bg} />
-            </div>
+            {project.screenshots.length > 0 && (
+              <div className="mt-10">
+                <ProjectCarousel screenshots={project.screenshots} />
+              </div>
+            )}
 
             <div className="mt-12 flex flex-wrap gap-3">
               {project.externalUrl && (

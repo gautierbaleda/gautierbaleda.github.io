@@ -1,5 +1,6 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { type ProjectSummary } from "@/content/projects";
 
 export function Realisations({ projects }: { projects: ProjectSummary[] }) {
@@ -71,24 +72,57 @@ export function Realisations({ projects }: { projects: ProjectSummary[] }) {
         <div className="flex flex-1 items-stretch gap-14" style={{ minHeight: 0 }}>
           <div className="relative flex-[0_0_44%] overflow-hidden rounded-2xl bg-[#F5F5F7]">
             {active ? (
-              <div
-                className="flex h-full flex-col items-center justify-center p-10 text-center"
-                style={{ background: active.bg, color: active.textColor }}
-              >
-                <p className="mb-4 text-xs font-bold uppercase tracking-[0.14em] opacity-45">
-                  {active.name}
-                </p>
-                <p className="text-2xl font-extrabold leading-tight tracking-tight">
-                  {active.longName}
-                </p>
-                <div className="mt-5 flex flex-wrap justify-center gap-2">
-                  {active.tags.map((tag) => (
-                    <span key={tag} className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold">
-                      {tag}
-                    </span>
-                  ))}
+              active.hoverImage ? (
+                <>
+                  <Image
+                    src={active.hoverImage}
+                    alt={active.longName}
+                    fill
+                    sizes="44vw"
+                    className="object-cover"
+                  />
+                  <div
+                    className="absolute inset-x-0 bottom-0 flex flex-col items-center p-10 pt-24 text-center text-white"
+                    style={{
+                      background:
+                        "linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%)",
+                    }}
+                  >
+                    <p className="mb-4 text-xs font-bold uppercase tracking-[0.14em] opacity-70">
+                      {active.name}
+                    </p>
+                    <p className="text-2xl font-extrabold leading-tight tracking-tight">
+                      {active.longName}
+                    </p>
+                    <div className="mt-5 flex flex-wrap justify-center gap-2">
+                      {active.tags.map((tag) => (
+                        <span key={tag} className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <div
+                  className="flex h-full flex-col items-center justify-center p-10 text-center"
+                  style={{ background: active.bg, color: active.textColor }}
+                >
+                  <p className="mb-4 text-xs font-bold uppercase tracking-[0.14em] opacity-45">
+                    {active.name}
+                  </p>
+                  <p className="text-2xl font-extrabold leading-tight tracking-tight">
+                    {active.longName}
+                  </p>
+                  <div className="mt-5 flex flex-wrap justify-center gap-2">
+                    {active.tags.map((tag) => (
+                      <span key={tag} className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )
             ) : (
               <div className="flex h-full flex-col items-center justify-center gap-4">
                 <div className="umbreon-walker" />

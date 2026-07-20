@@ -1,0 +1,5 @@
+Une base Airtable (modèle en cinq tables : Clients, Projets, Chefs de projet, Freelances, Tickets) sert de socle central. Les tickets sont créés via un formulaire Fillout intelligent qui reconnaît le client depuis son identifiant transmis par Airtable et filtre les projets qui lui sont associés.
+
+Un webhook Make centralisé gère l'ensemble du cycle de vie du ticket : validation de l'email du demandeur (avec mise en stand-by et redirection si invalide), calcul automatique d'un score de priorité à partir des réponses au formulaire, et gestion des délais SLA (deadline calculée selon la priorité, alerte et notification en cas de dépassement).
+
+La solution est exposée aux utilisateurs via Zyllio, une interface finale qui affiche les données Airtable et reprend les mêmes formulaires et webhooks, avec un espace client et un espace projet. Un QR code personnalisé par client permet aussi de suivre le statut d'une demande sans repasser par l'interface complète.

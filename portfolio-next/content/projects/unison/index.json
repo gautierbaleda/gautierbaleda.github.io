@@ -1,0 +1,49 @@
+{
+  "slug": "unison",
+  "visible": true,
+  "ordre": 2,
+  "name": "Unison",
+  "longName": "Unison — Répertoire musical pour groupes",
+  "description": "PWA pour musiciens — chansons, transposition d'accords, setlists exportables et gestion de groupes, en React et Supabase.",
+  "hoverImage": "/images/projects/hover/unison/hoverImage.png",
+  "tags": [
+    "React",
+    "TypeScript",
+    "Supabase",
+    "PWA"
+  ],
+  "bg": "#1A2333",
+  "textColor": "#FFFFFF",
+  "year": "2026",
+  "features": [
+    {
+      "icon": "zap",
+      "title": "Transposition à la volée",
+      "description": "Changement de tonalité instantané, avec affichage en degrés harmoniques pour apprendre la structure plutôt que les notes."
+    },
+    {
+      "icon": "layers",
+      "title": "Setlists exportables en PDF",
+      "description": "Création de setlists pour concerts et répétitions, avec export PDF via jsPDF."
+    },
+    {
+      "icon": "users",
+      "title": "Groupes et partage de répertoire",
+      "description": "Gestion de bands, invitations et partage de répertoire entre musiciens."
+    },
+    {
+      "icon": "rocket",
+      "title": "Mode performance",
+      "description": "Interface épurée pensée pour la scène, grande lisibilité et navigation sans quitter les mains du clavier."
+    }
+  ],
+  "screenshots": [
+    "/images/projects/screenshots/unison/screenshots/0.png",
+    "/images/projects/screenshots/unison/screenshots/1.png",
+    "/images/projects/screenshots/unison/screenshots/2.png",
+    "/images/projects/screenshots/unison/screenshots/3.png",
+    "/images/projects/screenshots/unison/screenshots/4.png",
+    "/images/projects/screenshots/unison/screenshots/5.png"
+  ],
+  "externalUrl": "https://chord-craft.vercel.app/"
+}

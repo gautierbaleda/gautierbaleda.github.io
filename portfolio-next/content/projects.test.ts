@@ -9,8 +9,7 @@ describe("projects content", () => {
       expect(p.name).toBeTruthy();
       expect(p.tags.length).toBeGreaterThan(0);
       expect(p.year).toBeTruthy();
-      expect(p.screenshotsCount).toBeGreaterThanOrEqual(1);
-      expect(p.screenshotsCount).toBeLessThanOrEqual(3);
+      expect(Array.isArray(p.screenshots)).toBe(true);
       expect(Array.isArray(p.features)).toBe(true);
       expect(p.features.length).toBeGreaterThan(0);
       for (const feature of p.features) {
@@ -41,7 +40,7 @@ describe("projects content", () => {
       textColor: first.textColor,
       year: first.year,
       features: first.features,
-      screenshotsCount: first.screenshotsCount,
+      screenshots: first.screenshots,
       externalUrl: first.externalUrl,
     });
     expect(await bySlug!.problematique()).toEqual(await first.problematique());

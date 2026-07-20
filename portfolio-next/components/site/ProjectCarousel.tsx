@@ -1,33 +1,35 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
-export function ProjectCarousel({
-  screenshotsCount,
-  bg,
-}: {
-  screenshotsCount: number;
-  bg: string;
-}) {
+export function ProjectCarousel({ screenshots }: { screenshots: string[] }) {
   const [idx, setIdx] = useState(0);
+  const count = screenshots.length;
 
   const goTo = (next: number) => {
-    setIdx(((next % screenshotsCount) + screenshotsCount) % screenshotsCount);
+    setIdx(((next % count) + count) % count);
   };
 
   return (
     <div className="relative h-[320px] overflow-hidden rounded-2xl" style={{ background: "#F7F5F0" }}>
-      {Array.from({ length: screenshotsCount }, (_, i) => (
+      {screenshots.map((src, i) => (
         <div
-          key={i}
-          className="absolute inset-0 flex items-center justify-center transition-opacity duration-[400ms]"
-          style={{ opacity: i === idx ? 1 : 0, pointerEvents: i === idx ? "auto" : "none", background: bg }}
+          key={src}
+          className="absolute inset-0 transition-opacity duration-[400ms]"
+          style={{ opacity: i === idx ? 1 : 0, pointerEvents: i === idx ? "auto" : "none" }}
         >
-          <span className="text-sm font-semibold text-white/70">Capture {i + 1}</span>
+          <Image
+            src={src}
+            alt={`Capture ${i + 1}`}
+            fill
+            sizes="820px"
+            className="object-contain"
+          />
         </div>
       ))}
 
       <span className="absolute right-4 top-4 rounded-full bg-black/40 px-3 py-1 text-xs font-semibold text-white">
-        {idx + 1} / {screenshotsCount}
+        {idx + 1} / {count}
       </span>
 
       <button
@@ -52,9 +54,9 @@ export function ProjectCarousel({
       </button>
 
       <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
-        {Array.from({ length: screenshotsCount }, (_, i) => (
+        {screenshots.map((src, i) => (
           <button
-            key={i}
+            key={src}
             type="button"
             aria-label={`Capture ${i + 1}`}
             onClick={() => goTo(i)}

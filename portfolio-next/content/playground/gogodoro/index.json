@@ -1,0 +1,17 @@
+{
+  "title": "Gogodoro",
+  "visible": true,
+  "ordre": 600,
+  "tools": [
+    "Claude code",
+    "React",
+    "Vite",
+    "Chart.js",
+    "JavaScript"
+  ],
+  "description": "Timer Pomodoro public et partageable — tâches, statistiques de session et citations motivantes, sans compte ni base de données.",
+  "image": null,
+  "githubUrl": "https://github.com/DoubleRiz/gogodoro",
+  "externalUrl": "",
+  "bg": "#F0CD6E"
+}

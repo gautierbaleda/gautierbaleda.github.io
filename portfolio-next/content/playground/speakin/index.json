@@ -1,0 +1,19 @@
+{
+  "title": "SpeakIn",
+  "visible": true,
+  "ordre": 200,
+  "tools": [
+    "Claude code",
+    "Next.js",
+    "TypeScript",
+    "React",
+    "Zustand",
+    "Gemini API",
+    "Notion API"
+  ],
+  "description": "App vocale qui transcrit une note en français via Gemini, la structure selon 5 templates, et l'envoie directement dans Notion.",
+  "image": null,
+  "githubUrl": "https://github.com/DoubleRiz/SpeakIn",
+  "externalUrl": "",
+  "bg": "#FBEAD1"
+}

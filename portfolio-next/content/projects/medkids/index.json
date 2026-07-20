@@ -1,0 +1,42 @@
+{
+  "slug": "medkids",
+  "visible": true,
+  "ordre": 1,
+  "name": "Medkids",
+  "longName": "Medkids — Pré-diagnostic pédiatrique",
+  "description": "App de pré-diagnostic ludique pour enfants — avatar corporel interactif, questionnaire adapté et synthèse partageable aux soignants.",
+  "hoverImage": "/images/projects/hover/medkids/hoverImage.png",
+  "tags": [
+    "WeWeb",
+    "Xano",
+    "n8n",
+    "UX Research"
+  ],
+  "bg": "#12283B",
+  "textColor": "#FFFFFF",
+  "year": "2026",
+  "features": [
+    {
+      "icon": "users",
+      "title": "Avatar corporel interactif",
+      "description": "L'enfant désigne la zone douloureuse sur un avatar ludique plutôt que de la décrire avec des mots."
+    },
+    {
+      "icon": "layers",
+      "title": "Questionnaire adaptatif",
+      "description": "Des questions dynamiques selon la zone sélectionnée, avec échelle d'intensité adaptée à l'âge de l'enfant."
+    },
+    {
+      "icon": "zap",
+      "title": "Synthèse IA partageable",
+      "description": "Génération automatique d'un rapport de pré-diagnostic, exportable et envoyable au médecin traitant."
+    },
+    {
+      "icon": "shield",
+      "title": "Gestion multi-profils",
+      "description": "Un compte parent peut gérer plusieurs fiches enfants, chacune avec son propre historique de santé."
+    }
+  ],
+  "screenshots": [],
+  "externalUrl": ""
+}

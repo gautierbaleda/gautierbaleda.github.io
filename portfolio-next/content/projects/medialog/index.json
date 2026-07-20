@@ -1,0 +1,45 @@
+{
+  "slug": "medialog",
+  "visible": true,
+  "ordre": 2,
+  "name": "Medialog",
+  "longName": "Medialog — Agent IA interne",
+  "description": "Agent IA interne pour une société de conférences — consultation de la base intervenants, mise à jour de statuts et envoi de rappels ciblés, avec validation humaine obligatoire.",
+  "hoverImage": "/images/projects/hover/medialog/hoverImage.png",
+  "tags": [
+    "Make",
+    "IA / LLM",
+    "Automatisation"
+  ],
+  "bg": "#241B3D",
+  "textColor": "#FFFFFF",
+  "year": "2026",
+  "features": [
+    {
+      "icon": "layers",
+      "title": "Consultation de la base de données",
+      "description": "L'agent relie automatiquement conférences et intervenants pour répondre aux questions de l'équipe."
+    },
+    {
+      "icon": "code",
+      "title": "Mise à jour des statuts",
+      "description": "Modification des données (statuts, coordonnées) en langage naturel, répercutée directement dans la base."
+    },
+    {
+      "icon": "shield",
+      "title": "Validation humaine obligatoire",
+      "description": "Aucun email n'est envoyé sans confirmation explicite d'un brouillon présenté avec ses destinataires."
+    },
+    {
+      "icon": "zap",
+      "title": "Rappels ciblés automatiques",
+      "description": "Détection des échéances à moins de deux semaines et rédaction de rappels personnalisés, envoyés un par un."
+    }
+  ],
+  "screenshots": [
+    "/images/projects/screenshots/medialog/screenshots/0.png",
+    "/images/projects/screenshots/medialog/screenshots/1.png",
+    "/images/projects/screenshots/medialog/screenshots/2.png",
+    "/images/projects/screenshots/medialog/screenshots/3.png"
+  ]
+}

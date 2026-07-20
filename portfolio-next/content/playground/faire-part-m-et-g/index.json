@@ -1,0 +1,17 @@
+{
+  "title": "Faire-part M & G",
+  "visible": true,
+  "ordre": 300,
+  "tools": [
+    "Claude code",
+    "React",
+    "JavaScript",
+    "GSAP",
+    "Google Apps Script"
+  ],
+  "description": "Site de faire-part de mariage interactif — enveloppe animée, RSVP connecté à Google Sheets et version imprimable, en React sans build.",
+  "image": null,
+  "githubUrl": "https://github.com/DoubleRiz/faire-part-m-et-g",
+  "externalUrl": "",
+  "bg": "#F7DCE3"
+}

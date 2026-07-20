@@ -1,0 +1,3 @@
+Une PWA React 19 + TypeScript + Vite, avec Supabase pour l'authentification et le stockage des chansons, setlists et groupes en PostgreSQL. Le cœur technique — transposition, détection des sections et calcul des degrés harmoniques — est développé maison à partir d'un format texte simple avec les accords entre crochets.
+
+Choix d'architecture volontairement simple : pas de router, la navigation passe par un état `currentView` centralisé dans le composant racine. L'interface s'adapte au mobile (navigation basse) et au desktop (sidebar persistante), avec thème clair/sombre et export PDF des setlists via jsPDF — le formatage PDF et la sauvegarde fiable des setlists ont d'ailleurs été les deux sources de bugs les plus fréquentes du projet.

@@ -1,0 +1,47 @@
+{
+  "slug": "jujube",
+  "visible": true,
+  "ordre": 4,
+  "name": "Jujube",
+  "longName": "Jujube — Gestion de foyer à deux",
+  "description": "App de gestion de foyer à deux — tâches ménagères, suivi d'humeur et budget partagé, en PWA React/Supabase.",
+  "hoverImage": "/images/projects/hover/jujube/hoverImage.png",
+  "tags": [
+    "React",
+    "Vite",
+    "Supabase",
+    "PWA"
+  ],
+  "bg": "#3A1420",
+  "textColor": "#FFFFFF",
+  "year": "2026",
+  "features": [
+    {
+      "icon": "layers",
+      "title": "Tâches ménagères partagées",
+      "description": "Suivi des tâches et de leurs complétions par semaine, avec dashboard de répartition entre les deux."
+    },
+    {
+      "icon": "users",
+      "title": "Moodboard quotidien",
+      "description": "Chacun enregistre son humeur chaque jour, avec historique conservé et messages d'encouragement automatiques."
+    },
+    {
+      "icon": "zap",
+      "title": "Budget partagé",
+      "description": "Suivi des transactions et budgets communs, avec vue d'ensemble via des graphiques Recharts."
+    },
+    {
+      "icon": "rocket",
+      "title": "PWA installable et mode démo",
+      "description": "Fonctionne en mode standalone sur mobile, avec un mode hors-ligne pour tester sans backend."
+    }
+  ],
+  "screenshots": [
+    "/images/projects/screenshots/jujube/screenshots/0.png",
+    "/images/projects/screenshots/jujube/screenshots/1.png",
+    "/images/projects/screenshots/jujube/screenshots/2.png",
+    "/images/projects/screenshots/jujube/screenshots/3.png"
+  ],
+  "externalUrl": "https://github.com/DoubleRiz/jujube"
+}

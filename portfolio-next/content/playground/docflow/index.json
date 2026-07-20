@@ -1,0 +1,21 @@
+{
+  "title": "DocFlow",
+  "visible": true,
+  "ordre": 100,
+  "tools": [
+    "Claude code",
+    "TanStack Start",
+    "TypeScript",
+    "Drizzle ORM",
+    "Neon (Postgres)",
+    "Clerk",
+    "TipTap",
+    "Vercel Blob",
+    "Tailwind CSS"
+  ],
+  "description": "Outil personnel de publipostage moderne — éditeur et tableur synchronisés en temps réel, génération PDF/ZIP en masse.",
+  "image": null,
+  "githubUrl": "https://github.com/DoubleRiz/docflow",
+  "externalUrl": "",
+  "bg": "#EDE6D8"
+}
