@@ -49,9 +49,8 @@ export function Realisations({ projects }: { projects: ProjectSummary[] }) {
   }, [wrapperEl, listContainerEl, listInnerEl, updateStickyLayout, updateListScroll]);
 
   return (
-    <div ref={setStickyWrapper}>
+    <div id="projets" ref={setStickyWrapper}>
       <section
-        id="projets"
         className="sticky-section rounded-[20px] px-12 py-10"
         style={{
           position: "sticky",

@@ -1,6 +1,7 @@
 import { DocumentRenderer } from "@keystatic/core/renderer";
 import type { DocumentElement } from "@keystatic/core";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { ImageCarousel } from "@/components/site/ImageCarousel";
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -28,8 +29,10 @@ export function PlaygroundDetailDialog({
   title,
   tools,
   image,
+  video,
   bg,
   descriptionLongue,
+  screenshots,
   githubUrl,
   externalUrl,
 }: {
@@ -38,21 +41,38 @@ export function PlaygroundDetailDialog({
   title: string;
   tools: string[];
   image: string | null;
+  video?: string | null;
   bg: string;
   descriptionLongue: DocumentElement[];
+  screenshots: string[];
   githubUrl: string;
   externalUrl: string;
 }) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-h-[85vh] overflow-y-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2">
-          <div className="flex items-center justify-center rounded-l-2xl p-8 sm:min-h-[420px]" style={{ background: bg }}>
-            {image ? (
+        <div className="flex flex-col">
+          <div className="relative flex items-center justify-center overflow-hidden rounded-t-2xl p-6 sm:min-h-[320px]" style={{ background: bg }}>
+            <div
+              className="pointer-events-none absolute inset-0 flex items-center justify-center"
+              aria-hidden="true"
+            >
+              <div className="h-[70%] w-[70%] rounded-full bg-white/40 blur-[64px]" />
+            </div>
+            {video ? (
+              <video
+                src={video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="relative h-auto max-h-[320px] w-auto max-w-full rounded-2xl shadow-2xl"
+              />
+            ) : image ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={image} alt={title} className="max-h-full w-full rounded-xl object-contain" />
+              <img src={image} alt={title} className="relative h-auto max-h-[320px] w-auto max-w-full rounded-2xl shadow-2xl" />
             ) : (
-              <div className="aspect-[3/4] w-full max-w-[220px] rounded-xl bg-white/10" />
+              <div className="relative aspect-[3/4] w-full max-w-[220px] rounded-2xl bg-white/10" />
             )}
           </div>
 
@@ -73,6 +93,12 @@ export function PlaygroundDetailDialog({
             <div className="flex-1">
               <DocumentRenderer document={descriptionLongue} renderers={richTextRenderers} />
             </div>
+
+            {screenshots.length > 0 && (
+              <div className="mt-6">
+                <ImageCarousel screenshots={screenshots} />
+              </div>
+            )}
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
               {externalUrl && (

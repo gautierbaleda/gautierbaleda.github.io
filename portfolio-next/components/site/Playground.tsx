@@ -2,15 +2,15 @@ import { FileText, Mic, Heart, Swords, Palette, Timer, Grid3x3, type LucideIcon 
 import { PlaygroundCard } from "./PlaygroundCard";
 import { getPlaygroundApps } from "@/content/playground";
 
-function IconFront({ icon: Icon, dark }: { icon: LucideIcon; dark?: boolean }) {
+function IconFront({ icon: Icon }: { icon: LucideIcon }) {
   return (
-    <div className={`flex h-20 w-20 items-center justify-center rounded-full ${dark ? "bg-white/10" : "bg-black/5"}`}>
-      <Icon className={`h-9 w-9 ${dark ? "text-white" : "text-ink"}`} strokeWidth={1.75} />
+    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-black/5">
+      <Icon className="h-9 w-9 text-ink" strokeWidth={1.75} />
     </div>
   );
 }
 
-const PRESENTATION: Record<string, { dark?: boolean; front: React.ReactNode }> = {
+const PRESENTATION: Record<string, { front: React.ReactNode }> = {
   docflow: {
     front: <IconFront icon={FileText} />,
   },
@@ -21,19 +21,16 @@ const PRESENTATION: Record<string, { dark?: boolean; front: React.ReactNode }> =
     front: <IconFront icon={Heart} />,
   },
   "epic-rubic": {
-    dark: true,
-    front: <IconFront icon={Swords} dark />,
+    front: <IconFront icon={Swords} />,
   },
   chromapix: {
-    dark: true,
-    front: <IconFront icon={Palette} dark />,
+    front: <IconFront icon={Palette} />,
   },
   gogodoro: {
     front: <IconFront icon={Timer} />,
   },
   "morpion-multijoueur": {
-    dark: true,
-    front: <IconFront icon={Grid3x3} dark />,
+    front: <IconFront icon={Grid3x3} />,
   },
 };
 
@@ -65,10 +62,11 @@ export async function Playground() {
                 description={app.description}
                 descriptionLongue={descriptionLongue}
                 image={app.image}
+                video={app.video}
+                screenshots={app.screenshots}
                 githubUrl={app.githubUrl}
                 externalUrl={app.externalUrl}
                 bg={app.bg}
-                dark={presentation.dark}
                 front={presentation.front}
               />
             );

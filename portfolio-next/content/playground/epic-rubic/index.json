@@ -9,8 +9,12 @@
     "Ruby"
   ],
   "description": "Mini-RPG textuel en français devenu jeu pixel-art HTML5 Canvas — exploration, combats et boss final, avec un portage Ruby/Gosu.",
-  "image": null,
+  "image": "/images/playground/epic-rubic/image.png",
+  "video": "/videos/playground/epic-rubic/video.mp4",
+  "screenshots": [
+    "/images/playground/screenshots/epic-rubic/screenshots/0.png",
+    "/images/playground/screenshots/epic-rubic/screenshots/1.png"
+  ],
   "githubUrl": "https://github.com/DoubleRiz/Epic-rubic",
-  "externalUrl": "",
   "bg": "#241B3D"
 }

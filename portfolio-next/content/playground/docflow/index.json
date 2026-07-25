@@ -14,8 +14,14 @@
     "Tailwind CSS"
   ],
   "description": "Outil personnel de publipostage moderne — éditeur et tableur synchronisés en temps réel, génération PDF/ZIP en masse.",
-  "image": null,
+  "image": "/images/playground/docflow/image.png",
+  "video": "/videos/playground/docflow/video.mp4",
+  "screenshots": [
+    "/images/playground/screenshots/docflow/screenshots/0.png",
+    "/images/playground/screenshots/docflow/screenshots/1.png",
+    "/images/playground/screenshots/docflow/screenshots/2.png",
+    "/images/playground/screenshots/docflow/screenshots/3.png"
+  ],
   "githubUrl": "https://github.com/DoubleRiz/docflow",
-  "externalUrl": "",
   "bg": "#EDE6D8"
 }

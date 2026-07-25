@@ -8,8 +8,11 @@
     "Chrome Extension"
   ],
   "description": "Extension Chrome qui extrait une palette de 5 couleurs (avec noms en français) depuis n'importe quelle zone sélectionnée d'une page web.",
-  "image": null,
+  "image": "/images/playground/chromapix/image.png",
+  "video": "/videos/playground/chromapix/video.mp4",
+  "screenshots": [
+    "/images/playground/screenshots/chromapix/screenshots/0.png"
+  ],
   "githubUrl": "https://github.com/DoubleRiz/chromapix",
-  "externalUrl": "",
   "bg": "#1D1D1F"
 }

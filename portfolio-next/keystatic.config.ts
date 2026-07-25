@@ -144,6 +144,24 @@ export default config({
           directory: "public/images/playground",
           publicPath: "/images/playground/",
         }),
+        video: fields.file({
+          label: "Vidéo (boucle)",
+          description: "Vidéo mp4 diffusée en boucle dans le détail du projet. Laisser vide pour afficher l'image à la place.",
+          directory: "public/videos/playground",
+          publicPath: "/videos/playground/",
+        }),
+        screenshots: fields.array(
+          fields.image({
+            label: "Capture d'écran",
+            directory: "public/images/playground/screenshots",
+            publicPath: "/images/playground/screenshots/",
+          }),
+          {
+            label: "Captures d'écran",
+            description: "Affichées dans le carrousel du détail du projet.",
+            itemLabel: (props) => props.value?.filename ?? "Capture d'écran",
+          }
+        ),
         githubUrl: fields.text({
           label: "Lien GitHub",
           description: "Laisser vide pour masquer le lien.",

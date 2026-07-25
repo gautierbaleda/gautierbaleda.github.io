@@ -11,7 +11,7 @@ export function ImageCarousel({ screenshots }: { screenshots: string[] }) {
   };
 
   return (
-    <div className="relative h-[320px] overflow-hidden rounded-2xl" style={{ background: "#F7F5F0" }}>
+    <div className="relative h-[320px]">
       {screenshots.map((src, i) => (
         <div
           key={src}
@@ -23,7 +23,7 @@ export function ImageCarousel({ screenshots }: { screenshots: string[] }) {
             alt={`Capture ${i + 1}`}
             fill
             sizes="820px"
-            className="object-contain"
+            className="rounded-2xl object-contain"
           />
         </div>
       ))}

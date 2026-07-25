@@ -11,6 +11,8 @@ export type PlaygroundApp = {
   description: string;
   descriptionLongue: () => Promise<DocumentElement[]>;
   image: string | null;
+  video: string | null;
+  screenshots: string[];
   githubUrl: string;
   externalUrl: string;
   bg: string;
@@ -30,6 +32,8 @@ export async function getPlaygroundApps(): Promise<PlaygroundApp[]> {
       description: entry.description,
       descriptionLongue: entry.descriptionLongue,
       image: entry.image,
+      video: entry.video,
+      screenshots: entry.screenshots.filter((s): s is string => Boolean(s)),
       githubUrl: entry.githubUrl,
       externalUrl: entry.externalUrl,
       bg: entry.bg,

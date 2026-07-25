@@ -6,7 +6,7 @@ import { DocumentRenderer } from "@keystatic/core/renderer";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { ProjectDetailReveal } from "@/components/site/ProjectDetailReveal";
-import { ProjectCarousel } from "@/components/site/ProjectCarousel";
+import { ImageCarousel } from "@/components/site/ImageCarousel";
 import { getProjectBySlug } from "@/content/projects";
 
 const FEATURE_ICONS: Record<string, LucideIcon> = {
@@ -130,7 +130,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
             {project.screenshots.length > 0 && (
               <div className="mt-10">
-                <ProjectCarousel screenshots={project.screenshots} />
+                <ImageCarousel screenshots={project.screenshots} />
               </div>
             )}
 

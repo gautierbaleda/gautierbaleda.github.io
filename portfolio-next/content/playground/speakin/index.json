@@ -12,8 +12,13 @@
     "Notion API"
   ],
   "description": "App vocale qui transcrit une note en français via Gemini, la structure selon 5 templates, et l'envoie directement dans Notion.",
-  "image": null,
+  "image": "/images/playground/speakin/image.png",
+  "video": "/videos/playground/speakin/video.mp4",
+  "screenshots": [
+    "/images/playground/screenshots/speakin/screenshots/0.png",
+    "/images/playground/screenshots/speakin/screenshots/1.png",
+    "/images/playground/screenshots/speakin/screenshots/2.png"
+  ],
   "githubUrl": "https://github.com/DoubleRiz/SpeakIn",
-  "externalUrl": "",
   "bg": "#FBEAD1"
 }

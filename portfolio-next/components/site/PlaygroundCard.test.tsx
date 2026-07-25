@@ -14,6 +14,7 @@ function renderCard(overrides: Partial<React.ComponentProps<typeof PlaygroundCar
       description="Minuteur Pomodoro."
       descriptionLongue={descriptionLongue as never}
       image={null}
+      screenshots={[]}
       githubUrl=""
       externalUrl=""
       bg="#F0CD6E"
