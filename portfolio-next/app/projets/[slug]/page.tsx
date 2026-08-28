@@ -8,7 +8,7 @@ import { Footer } from "@/components/site/Footer";
 import { ProjectDetailReveal } from "@/components/site/ProjectDetailReveal";
 import { ImageCarousel } from "@/components/site/ImageCarousel";
 import { TechTag } from "@/components/site/TechTag";
-import { getProjectBySlug } from "@/content/projects";
+import { getProjectBySlug, getProjects } from "@/content/projects";
 
 const FEATURE_ICONS: Record<string, LucideIcon> = {
   zap: Zap,
@@ -48,6 +48,13 @@ const richTextRenderers = {
     ),
   },
 };
+
+// Le contenu Keystatic est lu sur le système de fichiers ; il n'existe plus au
+// runtime dans la fonction serverless. On prégénère donc chaque page au build.
+export async function generateStaticParams() {
+  const projects = await getProjects();
+  return projects.map((project) => ({ slug: project.slug }));
+}
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
