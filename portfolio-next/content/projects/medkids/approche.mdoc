@@ -1,5 +1,24 @@
-Medkids fait dessiner la douleur plutôt que la décrire : l'enfant sélectionne la zone douloureuse sur un avatar en dessin animé et répond aux questions d'une mascotte, avec l'aide d'un parent. Ces interactions sont analysées en arrière-plan et synthétisées en un rapport de pré-diagnostic (le "Medscan"), partageable directement avec un professionnel de santé.
+Comment Medkids peut aider dans la communication entre un enfant et un parent pour répondre à cette problématique ?
 
-Stack : WeWeb pour un frontend fluide et une navigation intuitive entre profils d'enfants, Xano comme backend relationnel centralisant les données de santé, et n8n pour automatiser la génération des rapports de synthèse à partir des données stockées.
+Voici le cheminement mis en place :
 
-Projet mené en équipe de 4 (design, UX, dev, no-code) selon une méthodologie d'apprentissage croisé et un suivi Kanban, à partir d'une recherche utilisateur structurée (personas, user stories, cahier de tests).
+1. L'enfant sélectionne la zone où il a mal en touchant la partie du corps de l'avatar interactif sur l'écran
+1. Avec l'aide du parent, il répond à un questionnaire simple "est-ce que ça pique ?", "est-ce que ça gratte ?"…
+1. Une synthèse basée uniquement à partir des réponses et sans interprétations est rédigée
+1. Cette synthèse est accessible sur le profil et envoyable directement au médecin traitant s'il est configuré
+
+![](/images/projects/medkids/medkids-presentation-application-2.jpg)
+
+Stack :
+
+- WeWeb pour un frontend fluide et une navigation intuitive entre profils d'enfants
+- Xano comme backend relationnel centralisant les données de santé,
+- n8n pour automatiser la génération des rapports de synthèse à partir des données stockées.
+
+Les autres fonctionnalités notables :
+
+- **Gestion multi-profils :** L’application permet la création et la gestion de plusieurs fiches enfants sur un même compte parent. Chaque profil dispose de son propre espace de données (âge, poids, groupe sanguin) et d’un historique de santé indépendant, centralisé sur un tableau de bord dynamique.
+- **Historique et consultation des rapports :** Un espace dédié permet de retrouver tous les bilans générés précédemment. Ces rapports sont stockés de manière sécurisée et peuvent être consultés à tout moment pour suivre l'évolution de l'état de l'enfant.
+- **Édition et communication :** Toutes les informations (parentales ou médicales) sont modifiables pour garantir la précision des données. Enfin, une fonction de partage permet d'exporter et d'envoyer ces données au médecin traitant pour préparer la consultation.
+
+Ce projet a été mené en équipe de 4 avec des profils différents, et je remercie donc Alexandra Boscary, Flora Lambert et Cédric  Gicquiaud pour cette super collaboration !

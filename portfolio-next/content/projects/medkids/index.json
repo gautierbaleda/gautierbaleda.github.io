@@ -9,8 +9,7 @@
   "tags": [
     "WeWeb",
     "Xano",
-    "n8n",
-    "UX Research"
+    "n8n"
   ],
   "bg": "#12283B",
   "textColor": "#FFFFFF",
@@ -37,6 +36,11 @@
       "description": "Un compte parent peut gérer plusieurs fiches enfants, chacune avec son propre historique de santé."
     }
   ],
-  "screenshots": [],
-  "externalUrl": ""
+  "screenshots": [
+    "/images/projects/screenshots/medkids/screenshots/0.png",
+    "/images/projects/screenshots/medkids/screenshots/1.png",
+    "/images/projects/screenshots/medkids/screenshots/2.png",
+    "/images/projects/screenshots/medkids/screenshots/3.png",
+    "/images/projects/screenshots/medkids/screenshots/4.jpg"
+  ]
 }

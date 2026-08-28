@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { type ProjectSummary } from "@/content/projects";
+import { TechTag } from "@/components/site/TechTag";
 
 export function Realisations({ projects }: { projects: ProjectSummary[] }) {
   const [active, setActive] = useState<ProjectSummary | null>(null);
@@ -95,9 +96,7 @@ export function Realisations({ projects }: { projects: ProjectSummary[] }) {
                     </p>
                     <div className="mt-5 flex flex-wrap justify-center gap-2">
                       {active.tags.map((tag) => (
-                        <span key={tag} className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold">
-                          {tag}
-                        </span>
+                        <TechTag key={tag} tag={tag} />
                       ))}
                     </div>
                   </div>
@@ -115,9 +114,7 @@ export function Realisations({ projects }: { projects: ProjectSummary[] }) {
                   </p>
                   <div className="mt-5 flex flex-wrap justify-center gap-2">
                     {active.tags.map((tag) => (
-                      <span key={tag} className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold">
-                        {tag}
-                      </span>
+                      <TechTag key={tag} tag={tag} />
                     ))}
                   </div>
                 </div>

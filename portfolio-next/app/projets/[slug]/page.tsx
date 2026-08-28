@@ -7,6 +7,7 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { ProjectDetailReveal } from "@/components/site/ProjectDetailReveal";
 import { ImageCarousel } from "@/components/site/ImageCarousel";
+import { TechTag } from "@/components/site/TechTag";
 import { getProjectBySlug } from "@/content/projects";
 
 const FEATURE_ICONS: Record<string, LucideIcon> = {
@@ -25,8 +26,22 @@ const richTextRenderers = {
       return <Tag className="mb-3 mt-6 font-extrabold tracking-tight text-ink first:mt-0">{children}</Tag>;
     },
     paragraph: ({ children }: { children: React.ReactNode }) => (
-      <p className="mb-4 text-[15px] leading-relaxed text-muted-2 last:mb-0">{children}</p>
+      <p className="mb-4 text-[15px] leading-relaxed text-ink last:mb-0">{children}</p>
     ),
+    list: ({ children, type }: { children: React.ReactNode[]; type: "ordered" | "unordered" }) => {
+      const Tag = type === "ordered" ? "ol" : "ul";
+      return (
+        <Tag
+          className={`mb-4 ml-5 space-y-1 text-[15px] leading-relaxed text-ink last:mb-0 ${
+            type === "ordered" ? "list-decimal" : "list-disc"
+          }`}
+        >
+          {children.map((child, i) => (
+            <li key={i}>{child}</li>
+          ))}
+        </Tag>
+      );
+    },
     image: ({ src, alt }: { src: string; alt: string }) => (
       // eslint-disable-next-line @next/next/no-img-element
       <img src={src} alt={alt} className="mb-4 w-full rounded-2xl" />
@@ -76,9 +91,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             <p className="mx-auto max-w-[560px] text-base opacity-80">{project.description}</p>
             <div className="mt-6 flex flex-wrap justify-center gap-2">
               {project.tags.map((tag) => (
-                <span key={tag} className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold">
-                  {tag}
-                </span>
+                <TechTag key={tag} tag={tag} />
               ))}
             </div>
             {project.hoverImage ? (

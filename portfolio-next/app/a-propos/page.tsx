@@ -61,7 +61,7 @@ const HOBBIES = [
     description:
       "Des univers de jeux vidéo aux pages de mangas, je suis un amoureux d'histoires et d'aventures. Une culture geek revendiquée qui m'accompagne depuis toujours et qui stimule ma créativité.",
     tag: "Gaming & Mangas 🎮",
-    image: null,
+    image: "/images/about/gaming.jpg",
     rotate: "-rotate-[2.5deg]",
     imageSide: "left",
   },
@@ -127,15 +127,15 @@ export default function Page() {
             <br />
             <span className="text-accent">Baleda</span>
           </h1>
-          <p className="mb-8 text-base font-medium text-muted-2">Designer &amp; Développeur</p>
+          <p className="mb-8 text-base font-medium text-muted-2">Product Builder</p>
           <p className="mb-5 text-[17px] leading-relaxed text-[#3A3A3C]">
-            Passionné par les interfaces qui ont du sens et le code qui va avec.
-            Je travaille à l&apos;intersection du design et du développement —
-            concevoir des expériences soignées, les prototyper rapidement, et
-            les pousser en prod.
+            J&apos;aime construire ce qui a du sens, des applications comme des
+            liens. Curieux de tout ce qui est possible, je peux passer
+            d&apos;explorateur à enquêteur pour résoudre des énigmes tech
+            et proposer des solutions sur mesure.
           </p>
           <p className="text-[17px] leading-relaxed text-[#3A3A3C]">
-            Toujours curieux, toujours en mouvement — que ce soit sur un projet
+            Toujours curieux, toujours en mouvement, que ce soit sur un projet
             perso, dans une asso, ou sur les sentiers.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3 md:justify-start">
@@ -169,9 +169,8 @@ export default function Page() {
             {EXPERIENCES.map((exp, i) => (
               <div
                 key={exp.title}
-                className={`group flex items-start gap-0 ${
-                  i < EXPERIENCES.length - 1 ? "pb-12" : ""
-                }`}
+                className={`group flex items-start gap-0 ${i < EXPERIENCES.length - 1 ? "pb-12" : ""
+                  }`}
               >
                 <div className="hidden w-[120px] shrink-0 pr-7 pt-1 text-right md:block">
                   <span className="font-mono text-[13px] font-medium text-muted-2">
@@ -216,11 +215,10 @@ export default function Page() {
               className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16"
             >
               <div
-                className={`flex justify-center ${
-                  hobby.imageSide === "right"
-                    ? "md:order-2 md:justify-end"
-                    : "md:order-1 md:justify-start"
-                }`}
+                className={`flex justify-center ${hobby.imageSide === "right"
+                  ? "md:order-2 md:justify-end"
+                  : "md:order-1 md:justify-start"
+                  }`}
               >
                 <HobbyPolaroid hobby={hobby} />
               </div>
