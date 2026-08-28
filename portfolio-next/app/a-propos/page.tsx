@@ -82,19 +82,13 @@ function HobbyPolaroid({ hobby }: { hobby: (typeof HOBBIES)[number] }) {
       className={`w-[280px] rotate-0 rounded-sm bg-white p-3 pb-12 shadow-[0px_1px_4px_0px_rgba(0,0,0,0.10)] transition-transform duration-300 will-change-transform hover:scale-[1.03] ${hobby.rotate}`}
     >
       <div className="aspect-square overflow-hidden rounded-sm bg-[#F5F5F7]">
-        {hobby.image ? (
-          <Image
-            src={hobby.image}
-            alt={hobby.tag}
-            width={280}
-            height={280}
-            className="h-full w-full object-cover object-top"
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center text-sm font-medium text-muted-2">
-            {hobby.tag}
-          </div>
-        )}
+        <Image
+          src={hobby.image}
+          alt={hobby.tag}
+          width={280}
+          height={280}
+          className="h-full w-full object-cover object-top"
+        />
       </div>
       <p className="mt-3.5 text-center font-mono text-[13px] text-muted-2">{hobby.tag}</p>
     </div>
