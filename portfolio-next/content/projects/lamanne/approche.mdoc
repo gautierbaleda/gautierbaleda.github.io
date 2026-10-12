@@ -1,0 +1,8 @@
+J'ai organisé le projet en monorepo pnpm + Turborepo avec deux applications Next.js :
+
+- **Backend** : un adapter par source, déclenché par Vercel Cron. Chaque passage normalise les données, les catégorise automatiquement, les dédoublonne et purge ce qui a disparu de la source. Les embeddings pgvector sont générés à l'insertion dans Supabase.
+- **Frontend** : le site public, qui ne parle qu'à un proxy same-origin pour que la clé et l'URL du backend restent côté serveur.
+
+Une règle guide l'ajout de sources : une source n'est intégrée que si elle fonctionne en cron, sans navigateur headless ni jeton qui expire. Tout le reste (libellés, intervalles, bannières, radios) est éditable depuis l'admin, rien n'est codé en dur.
+
+Côté interface, j'ai travaillé une page d'accueil en tableau de bord de widgets personnalisables, des vues liste et carte (Leaflet) pour les événements et les églises, un lecteur radio flottant, un thème clair/sombre, et une recherche augmentée qui s'appuie sur Gemini et pose des questions de clarification plutôt que d'inventer une réponse.

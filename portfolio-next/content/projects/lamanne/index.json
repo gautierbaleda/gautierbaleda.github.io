@@ -1,0 +1,51 @@
+{
+  "slug": "lamanne",
+  "visible": true,
+  "ordre": 7,
+  "name": "La Manne",
+  "longName": "La Manne — Portail agrégateur de contenu",
+  "description": "Portail mobile-first conçu et livré pour l'association La Manne : il rassemble automatiquement événements, églises, radios, actualités et Bible du web chrétien francophone, avec une recherche augmentée par IA.",
+  "hoverImage": "/images/projects/hover/lamanne/hoverImage.png",
+  "tags": [
+    "Next.js",
+    "TypeScript",
+    "Supabase",
+    "Tailwind CSS",
+    "Gemini"
+  ],
+  "bg": "#287DA4",
+  "textColor": "#FFFFFF",
+  "year": "2026",
+  "features": [
+    {
+      "icon": "layers",
+      "title": "Agrégation automatique",
+      "description": "Une vingtaine d'adapters (scraping, RSS, ICS, API) alimentent la base par cron, dédoublonnent et purgent le contenu périmé."
+    },
+    {
+      "icon": "zap",
+      "title": "Recherche augmentée",
+      "description": "Recherche sémantique (pgvector) et réponses générées par Gemini, avec questions de clarification quand la demande est ambiguë."
+    },
+    {
+      "icon": "users",
+      "title": "Tableau de bord personnalisable",
+      "description": "Widgets déplaçables et configurables, comptes utilisateurs, favoris de sources et notifications in-app."
+    },
+    {
+      "icon": "shield",
+      "title": "API protégée et admin",
+      "description": "Le site public passe par un proxy qui cache la clé du backend ; sources, libellés et crons sont éditables depuis l'admin."
+    }
+  ],
+  "screenshots": [
+    "/images/projects/screenshots/lamanne/screenshots/0.png",
+    "/images/projects/screenshots/lamanne/screenshots/1.png",
+    "/images/projects/screenshots/lamanne/screenshots/2.png",
+    "/images/projects/screenshots/lamanne/screenshots/3.png"
+  ],
+  "videos": [
+    "/videos/projects/lamanne/videos/0.mp4"
+  ],
+  "externalUrl": "https://lamanne.net"
+}
