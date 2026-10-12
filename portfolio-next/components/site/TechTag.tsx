@@ -1,29 +1,41 @@
 import {
   siAirtable,
+  siClaude,
   siFillout,
+  siGsap,
+  siGooglegemini,
   siMake,
   siN8n,
+  siNextdotjs,
   siNotion,
   siPwa,
   siReact,
   siSpotify,
   siSupabase,
+  siTailwindcss,
   siTypescript,
   siVite,
+  siWordpress,
 } from "simple-icons";
 
 const TAG_ICONS: Record<string, { path: string }> = {
   Airtable: siAirtable,
+  "Claude Design": siClaude,
   Fillout: siFillout,
+  GSAP: siGsap,
+  Gemini: siGooglegemini,
   Make: siMake,
   n8n: siN8n,
+  "Next.js": siNextdotjs,
   "Notion API": siNotion,
   PWA: siPwa,
   React: siReact,
   "Spotify API": siSpotify,
   Supabase: siSupabase,
+  "Tailwind CSS": siTailwindcss,
   TypeScript: siTypescript,
   Vite: siVite,
+  WordPress: siWordpress,
 };
 
 export function TechTag({ tag }: { tag: string }) {

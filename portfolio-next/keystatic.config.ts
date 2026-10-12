@@ -102,6 +102,19 @@ export default config({
             itemLabel: (props) => props.value?.filename ?? "Capture d'écran",
           }
         ),
+        videos: fields.array(
+          fields.file({
+            label: "Vidéo",
+            description: "Vidéo mp4 lue en boucle, sans son, dans le carrousel.",
+            directory: "public/videos/projects",
+            publicPath: "/videos/projects/",
+          }),
+          {
+            label: "Vidéos de démo",
+            description: "Affichées dans le carrousel de la page projet, avant les captures d'écran.",
+            itemLabel: (props) => props.value?.filename ?? "Vidéo",
+          }
+        ),
         externalUrl: fields.text({
           label: "Lien externe (bouton \"Voir le projet\")",
           description: "Laisser vide pour masquer le bouton.",

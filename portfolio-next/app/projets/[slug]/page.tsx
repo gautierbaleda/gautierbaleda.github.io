@@ -148,9 +148,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
               })}
             </div>
 
-            {project.screenshots.length > 0 && (
+            {(project.screenshots.length > 0 || project.videos.length > 0) && (
               <div className="mt-10">
-                <ImageCarousel screenshots={project.screenshots} />
+                <ImageCarousel screenshots={project.screenshots} videos={project.videos} />
               </div>
             )}
 

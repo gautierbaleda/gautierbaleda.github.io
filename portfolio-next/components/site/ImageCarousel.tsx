@@ -1,30 +1,66 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-export function ImageCarousel({ screenshots }: { screenshots: string[] }) {
+type Slide = { kind: "video" | "image"; src: string };
+
+export function ImageCarousel({ screenshots, videos = [] }: { screenshots: string[]; videos?: string[] }) {
   const [idx, setIdx] = useState(0);
-  const count = screenshots.length;
+  const videoRefs = useRef<Record<number, HTMLVideoElement | null>>({});
+  const slides: Slide[] = [
+    ...videos.map((src): Slide => ({ kind: "video", src })),
+    ...screenshots.map((src): Slide => ({ kind: "image", src })),
+  ];
+  const count = slides.length;
 
   const goTo = (next: number) => {
     setIdx(((next % count) + count) % count);
   };
 
+  // Seule la vidéo visible est lue ; elle repart du début à chaque affichage.
+  useEffect(() => {
+    Object.entries(videoRefs.current).forEach(([i, video]) => {
+      if (!video) return;
+      if (Number(i) === idx) {
+        video.currentTime = 0;
+        // play() peut être indisponible (jsdom) ou refusé par le navigateur.
+        video.play()?.catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, [idx]);
+
   return (
     <div className="relative h-[320px]">
-      {screenshots.map((src, i) => (
+      {slides.map((slide, i) => (
         <div
-          key={src}
+          key={slide.src}
           className="absolute inset-0 transition-opacity duration-[400ms]"
           style={{ opacity: i === idx ? 1 : 0, pointerEvents: i === idx ? "auto" : "none" }}
         >
-          <Image
-            src={src}
-            alt={`Capture ${i + 1}`}
-            fill
-            sizes="820px"
-            className="rounded-2xl object-contain"
-          />
+          {slide.kind === "video" ? (
+            <video
+              ref={(el) => {
+                videoRefs.current[i] = el;
+              }}
+              src={slide.src}
+              aria-label={`Vidéo ${i + 1}`}
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              className="h-full w-full rounded-2xl object-contain"
+            />
+          ) : (
+            <Image
+              src={slide.src}
+              alt={`Capture ${i + 1}`}
+              fill
+              sizes="820px"
+              className="rounded-2xl object-contain"
+            />
+          )}
         </div>
       ))}
 
@@ -54,11 +90,11 @@ export function ImageCarousel({ screenshots }: { screenshots: string[] }) {
       </button>
 
       <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
-        {screenshots.map((src, i) => (
+        {slides.map((slide, i) => (
           <button
-            key={src}
+            key={slide.src}
             type="button"
-            aria-label={`Capture ${i + 1}`}
+            aria-label={`${slide.kind === "video" ? "Vidéo" : "Capture"} ${i + 1}`}
             onClick={() => goTo(i)}
             className="h-2 rounded-full transition-all"
             style={{

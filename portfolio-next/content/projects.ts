@@ -25,6 +25,7 @@ export type Project = {
   approche: () => Promise<DocumentElement[]>;
   features: ProjectFeature[];
   screenshots: string[];
+  videos: string[];
   externalUrl: string;
 };
 
@@ -61,6 +62,7 @@ function toProject(slug: string, entry: Awaited<ReturnType<typeof reader.collect
     approche,
     features: entry!.features.map((f) => ({ icon: f.icon, title: f.title, description: f.description })),
     screenshots: entry!.screenshots.filter((s): s is string => Boolean(s)),
+    videos: entry!.videos.filter((v): v is string => Boolean(v)),
     externalUrl: entry!.externalUrl,
   };
 }

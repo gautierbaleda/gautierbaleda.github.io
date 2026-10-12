@@ -17,6 +17,7 @@ const projects: ProjectSummary[] = [
     year: "2025",
     features: [],
     screenshots: [],
+    videos: [],
     externalUrl: "",
   },
 ];
