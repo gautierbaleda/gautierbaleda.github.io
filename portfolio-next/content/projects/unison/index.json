@@ -1,7 +1,7 @@
 {
   "slug": "unison",
   "visible": true,
-  "ordre": 2,
+  "ordre": 5,
   "name": "Unison",
   "longName": "Unison — Répertoire musical pour groupes",
   "description": "PWA pour musiciens — chansons, transposition d'accords, setlists exportables et gestion de groupes, en React et Supabase.",

@@ -1,7 +1,7 @@
 {
   "slug": "medkids",
   "visible": true,
-  "ordre": 1,
+  "ordre": 3,
   "name": "Medkids",
   "longName": "Medkids — Pré-diagnostic pédiatrique",
   "description": "App de pré-diagnostic ludique pour enfants — avatar corporel interactif, questionnaire adapté et synthèse partageable aux soignants.",

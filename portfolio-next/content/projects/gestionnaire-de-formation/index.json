@@ -1,7 +1,7 @@
 {
   "slug": "gestionnaire-de-formation",
   "visible": true,
-  "ordre": 3,
+  "ordre": 6,
   "name": "Gestionnaire de formation",
   "longName": "Gestionnaire de formation — Suivi de cours et présences",
   "description": "Système de gestion de formation en ligne — suivi des cours, inscriptions et présences automatisées, construit avec Airtable, Fillout et Make.",

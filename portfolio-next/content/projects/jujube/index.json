@@ -1,7 +1,7 @@
 {
   "slug": "jujube",
   "visible": true,
-  "ordre": 4,
+  "ordre": 7,
   "name": "Jujube",
   "longName": "Jujube — Gestion de foyer à deux",
   "description": "App de gestion de foyer à deux — tâches ménagères, suivi d'humeur et budget partagé, en PWA React/Supabase.",

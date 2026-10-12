@@ -1,7 +1,7 @@
 {
   "slug": "gestionnaire-de-ticket",
   "visible": true,
-  "ordre": 5,
+  "ordre": 8,
   "name": "Gestionnaire de ticket",
   "longName": "Gestionnaire de ticket — Support client automatisé",
   "description": "Système de suivi de tickets de support automatisé — priorisation par score, validation d'email et gestion des délais, via Airtable, Fillout et Make.",
