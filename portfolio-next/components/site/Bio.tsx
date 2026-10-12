@@ -1,7 +1,9 @@
+import Image from "next/image";
+
 export function Bio() {
   return (
-    <section className="rounded-[20px] px-10 py-10">
-      <div className="flex items-center gap-16">
+    <section className="rounded-[20px] px-0 py-10 md:px-10">
+      <div className="flex flex-col-reverse items-center gap-8 md:flex-row md:gap-16">
         <div className="flex-1">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.1em] text-accent">
             QUI SUIS-JE
@@ -15,15 +17,18 @@ export function Bio() {
             développement no-code. Je construis des solutions qui résolvent
             de vrais problèmes pour de vraies personnes.
           </p>
-          <a href="#" className="text-sm font-semibold text-accent">
+          <a href="/a-propos" className="text-sm font-semibold text-accent">
             En savoir plus →
           </a>
         </div>
-        <div className="flex h-[260px] w-[380px] shrink-0 items-center justify-center rounded-2xl bg-[#F5F5F7]">
-          <svg width={64} height={64} viewBox="0 0 24 24" fill="none" stroke="#FFC800" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="16 18 22 12 16 6" />
-            <polyline points="8 6 2 12 8 18" />
-          </svg>
+        <div className="relative aspect-square w-full max-w-[280px] shrink-0 overflow-hidden rounded-2xl bg-[#F5F5F7] md:w-[280px]">
+          <Image
+            src="/images/home/photo.jpg"
+            alt="Photo de Gautier Baleda"
+            fill
+            sizes="280px"
+            className="object-cover"
+          />
         </div>
       </div>
     </section>
