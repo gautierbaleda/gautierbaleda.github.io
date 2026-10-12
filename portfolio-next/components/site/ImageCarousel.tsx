@@ -32,7 +32,7 @@ export function ImageCarousel({ screenshots, videos = [] }: { screenshots: strin
   }, [idx]);
 
   return (
-    <div className="relative h-[320px]">
+    <div className="relative h-[240px] sm:h-[320px]">
       {slides.map((slide, i) => (
         <div
           key={slide.src}
@@ -57,7 +57,7 @@ export function ImageCarousel({ screenshots, videos = [] }: { screenshots: strin
               src={slide.src}
               alt={`Capture ${i + 1}`}
               fill
-              sizes="820px"
+              sizes="(max-width: 860px) 100vw, 820px"
               className="rounded-2xl object-contain"
             />
           )}

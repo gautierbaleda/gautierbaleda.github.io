@@ -11,7 +11,7 @@ export default async function Page() {
   const playground = await Playground();
 
   return (
-    <div className="mx-auto flex max-w-[1440px] flex-col gap-4 px-8 py-6 md:px-[120px]">
+    <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-4 px-4 py-4 sm:px-8 sm:py-6 lg:px-[120px]">
       <Nav />
       <Hero />
       <Bio />

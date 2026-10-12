@@ -79,7 +79,7 @@ const HOBBIES = [
 function HobbyPolaroid({ hobby }: { hobby: (typeof HOBBIES)[number] }) {
   return (
     <div
-      className={`w-[280px] rotate-0 rounded-sm bg-white p-3 pb-12 shadow-[0px_1px_4px_0px_rgba(0,0,0,0.10)] transition-transform duration-300 will-change-transform hover:scale-[1.03] ${hobby.rotate}`}
+      className={`w-full max-w-[280px] rotate-0 rounded-sm bg-white p-3 pb-12 shadow-[0px_1px_4px_0px_rgba(0,0,0,0.10)] transition-transform duration-300 will-change-transform hover:scale-[1.03] ${hobby.rotate}`}
     >
       <div className="aspect-square overflow-hidden rounded-sm bg-[#F5F5F7]">
         <Image
@@ -97,10 +97,10 @@ function HobbyPolaroid({ hobby }: { hobby: (typeof HOBBIES)[number] }) {
 
 export default function Page() {
   return (
-    <div className="mx-auto flex max-w-[1440px] flex-col gap-4 px-8 py-6 md:px-[120px]">
+    <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-4 px-4 py-4 sm:px-8 sm:py-6 lg:px-[120px]">
       <Nav />
 
-      <section className="flex flex-col items-center gap-12 rounded-[24px] bg-white px-8 py-14 md:flex-row md:gap-16 md:px-16 md:py-14">
+      <section className="flex flex-col items-center gap-12 rounded-[24px] bg-white px-5 py-10 sm:px-8 sm:py-14 md:flex-row md:gap-16 md:px-16 md:py-14">
         <div className="h-[280px] w-full shrink-0 overflow-hidden rounded-[20px] md:h-[380px] md:w-[320px]">
           <Image
             src="/images/about/portrait.jpg"
@@ -149,11 +149,11 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="rounded-[24px] bg-white px-8 py-14 md:px-16">
+      <section className="rounded-[24px] bg-white px-5 py-10 sm:px-8 sm:py-14 md:px-16">
         <p className="mb-2 font-mono text-xs font-medium uppercase tracking-[0.1em] text-muted-2">
           Parcours
         </p>
-        <h2 className="mb-14 text-3xl font-extrabold tracking-tight text-ink md:text-[40px]">
+        <h2 className="mb-10 text-3xl font-extrabold md:mb-14 tracking-tight text-ink md:text-[40px]">
           Expériences pro
         </h2>
 
@@ -171,7 +171,7 @@ export default function Page() {
                     {exp.period}
                   </span>
                 </div>
-                <div className="flex w-14 shrink-0 flex-col items-center pt-1">
+                <div className="flex w-8 shrink-0 flex-col items-center pt-1 md:w-14">
                   <div className="h-3 w-3 shrink-0 rounded-full bg-[#FFE680] transition-all duration-200 group-hover:scale-125 group-hover:bg-accent" />
                 </div>
                 <div className="flex-1">
@@ -185,7 +185,10 @@ export default function Page() {
                       </span>
                     )}
                   </div>
-                  <p className="mb-2.5 text-sm font-semibold text-muted-2">{exp.place}</p>
+                  <p className="mb-2.5 text-sm font-semibold text-muted-2">
+                    <span className="font-mono text-[13px] font-medium md:hidden">{exp.period} · </span>
+                    {exp.place}
+                  </p>
                   <p className="text-sm leading-relaxed text-[#3A3A3C]">{exp.description}</p>
                 </div>
               </div>
@@ -194,7 +197,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="rounded-[24px] bg-white px-8 py-14 md:px-16">
+      <section className="rounded-[24px] bg-white px-5 py-10 sm:px-8 sm:py-14 md:px-16">
         <p className="mb-2 font-mono text-xs font-medium uppercase tracking-[0.1em] text-muted-2">
           En dehors du boulot
         </p>

@@ -1,11 +1,11 @@
 export function Footer() {
   return (
-    <section id="contact" className="rounded-[20px] bg-ink px-10 py-16 text-center">
+    <section id="contact" className="rounded-[20px] bg-ink px-6 py-12 text-center sm:px-10 sm:py-16">
       <div className="mx-auto max-w-[600px]">
         <p className="mb-4 text-xs font-bold uppercase tracking-[0.12em] text-accent">
           CONTACT
         </p>
-        <h2 className="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-white"><span>Un projet en tête ?</span><br />Parlons-en.</h2>
+        <h2 className="mb-4 text-3xl font-extrabold leading-tight sm:text-4xl tracking-tight text-white"><span>Un projet en tête ?</span><br />Parlons-en.</h2>
         <p className="mb-10 text-[15px] leading-relaxed text-muted-2">
           Je réponds généralement sous 24h. Dites-moi ce que vous cherchez à
           construire, et on voit ensemble comment y arriver vite !

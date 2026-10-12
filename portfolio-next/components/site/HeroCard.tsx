@@ -10,7 +10,7 @@ const CARD_STYLE: Record<Variant, { bg: string; rotate: string; shadow: string }
 function CardIcon({ variant }: { variant: Variant }) {
   if (variant === "bricks") {
     return (
-      <svg className="icon-bricks" width={150} height={150} viewBox="0 0 100 100" fill="none">
+      <svg className="icon-bricks h-[65%] w-[65%]" viewBox="0 0 100 100" fill="none">
         <g className="brick brick-a">
           <path d="M38,44 L51.9,52 L38,60 L24.1,52 Z" fill="#1D1D1F" />
           <path d="M51.9,52 L51.9,68 L38,76 L38,60 Z" fill="#1D1D1F" opacity="0.72" />
@@ -33,9 +33,7 @@ function CardIcon({ variant }: { variant: Variant }) {
   if (variant === "code") {
     return (
       <svg
-        className="icon-code"
-        width={150}
-        height={150}
+        className="icon-code h-[65%] w-[65%]"
         viewBox="0 0 100 100"
         overflow="visible"
         fill="none"
@@ -56,7 +54,7 @@ function CardIcon({ variant }: { variant: Variant }) {
   }
   if (variant === "gears") {
     return (
-      <svg className="icon-gears" width={150} height={150} viewBox="0 0 100 100" fill="none">
+      <svg className="icon-gears h-[65%] w-[65%]" viewBox="0 0 100 100" fill="none">
         <g transform="translate(40,56)">
           <g className="gear-spin-1" style={{ transformBox: "fill-box", transformOrigin: "center" }}>
             <g fill="#1D1D1F">
@@ -83,7 +81,7 @@ function CardIcon({ variant }: { variant: Variant }) {
     );
   }
   return (
-    <svg className="icon-rocket" width={150} height={150} viewBox="0 0 100 100" fill="none">
+    <svg className="icon-rocket h-[65%] w-[65%]" viewBox="0 0 100 100" fill="none">
       <g transform="translate(0,10)">
         <g className="rocket-float">
           <g className="rocket-smoke">
@@ -116,7 +114,7 @@ export function HeroCard({ variant, label }: { variant: Variant; label: string }
   return (
     <div className="hero-card-wrap">
       <div
-        className={`hero-card card-${variant} relative flex h-[230px] w-[230px] shrink-0 items-center justify-center overflow-hidden rounded-[28px] border-[6px] border-white`}
+        className={`hero-card card-${variant} relative flex h-[84px] w-[84px] shrink-0 items-center justify-center overflow-hidden rounded-[16px] border-4 border-white sm:h-[150px] sm:w-[150px] sm:rounded-[22px] xl:h-[230px] xl:w-[230px] xl:rounded-[28px] xl:border-[6px]`}
         style={{ background: bg, transform: rotate, boxShadow: shadow }}
       >
         <CardIcon variant={variant} />

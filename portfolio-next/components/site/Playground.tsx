@@ -38,7 +38,7 @@ export async function Playground() {
   const apps = await getPlaygroundApps();
 
   return (
-    <section id="play" className="rounded-[20px] px-10 py-10">
+    <section id="play" className="rounded-[20px] py-10 sm:px-10">
       <div className="mb-7">
         <p className="mb-1 text-xs font-bold uppercase tracking-[0.1em] text-accent">
           PLAYGROUND
@@ -47,7 +47,7 @@ export async function Playground() {
         <p className="text-sm text-muted">Des projets rapides, curieux, souvent utiles.</p>
       </div>
 
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-2 gap-3 lg:grid-cols-3">
         {await Promise.all(
           apps.map(async (app) => {
             const presentation = PRESENTATION[app.slug];
@@ -72,7 +72,7 @@ export async function Playground() {
             );
           })
         )}
-        <div className="relative col-span-3 flex h-[200px] items-center overflow-hidden rounded-2xl px-12">
+        <div className="relative col-span-full flex h-[200px] items-center overflow-hidden rounded-2xl px-12">
           <div
             className="pointer-events-none absolute inset-0"
             style={{

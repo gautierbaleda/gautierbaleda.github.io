@@ -66,17 +66,17 @@ export function PlaygroundDetailDialog({
                 loop
                 muted
                 playsInline
-                className="relative h-auto max-h-[320px] w-auto max-w-full rounded-2xl shadow-2xl"
+                className="relative h-auto max-h-[240px] w-auto max-w-full rounded-2xl shadow-2xl sm:max-h-[320px]"
               />
             ) : image ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={image} alt={title} className="relative h-auto max-h-[320px] w-auto max-w-full rounded-2xl shadow-2xl" />
+              <img src={image} alt={title} className="relative h-auto max-h-[240px] w-auto max-w-full rounded-2xl shadow-2xl sm:max-h-[320px]" />
             ) : (
               <div className="relative aspect-[3/4] w-full max-w-[220px] rounded-2xl bg-white/10" />
             )}
           </div>
 
-          <div className="flex flex-col p-8">
+          <div className="flex flex-col p-5 sm:p-8">
             <DialogTitle>{title}</DialogTitle>
 
             <div className="mb-4 mt-3 flex flex-wrap gap-2">

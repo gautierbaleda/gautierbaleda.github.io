@@ -67,9 +67,15 @@ export function PlaygroundCard({
           ) : (
             front
           )}
+          {/* Sans survol (tactile), le titre est affiché sur la face avant. */}
+          <span
+            data-title={title}
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-0 hidden bg-gradient-to-t from-black/60 to-transparent px-3 pb-3 pt-8 text-left text-sm font-bold text-white before:content-[attr(data-title)] pointer-coarse:block"
+          />
         </div>
         <div
-          className="absolute inset-0 flex flex-col justify-end border border-black/5 p-6 transition-opacity duration-200"
+          className="absolute inset-0 flex flex-col justify-end border border-black/5 p-4 transition-opacity duration-200 sm:p-6"
           style={{
             transform: "rotateY(180deg)",
             background: "#FFFFFF",
@@ -79,10 +85,10 @@ export function PlaygroundCard({
           <span className="mb-2 text-[11px] font-bold uppercase tracking-[0.12em] text-black/40">
             {tool}
           </span>
-          <h3 className="mb-2 text-2xl font-extrabold tracking-tight text-ink">
+          <h3 className="mb-2 text-lg font-extrabold tracking-tight text-ink sm:text-2xl">
             {title}
           </h3>
-          <p className="mb-5 text-sm leading-relaxed text-black/60">
+          <p className="mb-5 line-clamp-3 text-sm leading-relaxed text-black/60">
             {description}
           </p>
           <div className="inline-flex items-center gap-1.5 text-sm font-bold text-ink">

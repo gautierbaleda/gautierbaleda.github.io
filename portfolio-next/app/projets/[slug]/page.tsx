@@ -71,12 +71,13 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   ]);
 
   return (
-    <ProjectDetailReveal>
-      <div className="mx-auto flex max-w-[1440px] flex-col gap-4 px-8 py-6 md:px-[120px]">
-        <Nav />
+    <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-4 px-4 py-4 sm:px-8 sm:py-6 lg:px-[120px]">
+      <Nav />
+      {/* La nav reste fixe ; seul le contenu glisse à l'arrivée sur la page. */}
+      <ProjectDetailReveal className="flex flex-col gap-4">
         <div className="mx-auto w-full max-w-[820px]">
           <div
-            className="sticky top-[100px] z-10 flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold"
+            className="sticky top-20 z-10 flex md:top-[100px] items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold"
             style={{ backdropFilter: "blur(12px)", background: "rgba(247,245,240,0.75)" }}
           >
             <Link href="/#projets" className="text-accent">
@@ -87,13 +88,13 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           </div>
 
           <section
-            className="rounded-[20px] px-16 py-20 text-center"
+            className="rounded-[20px] px-6 py-12 text-center sm:px-16 sm:py-20"
             style={{ background: project.bg, color: project.textColor }}
           >
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] opacity-45">
               {project.name}
             </p>
-            <h1 className="mb-2 text-5xl font-extrabold tracking-tight">{project.longName}</h1>
+            <h1 className="mb-2 text-3xl font-extrabold tracking-tight sm:text-5xl">{project.longName}</h1>
             <p className="mb-6 text-sm opacity-60">{project.year}</p>
             <p className="mx-auto max-w-[560px] text-base opacity-80">{project.description}</p>
             <div className="mt-6 flex flex-wrap justify-center gap-2">
@@ -113,13 +114,13 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
               </div>
             ) : (
               <div
-                className="mx-auto mt-10 h-[260px] max-w-[680px] rounded-2xl"
+                className="mx-auto mt-10 h-[180px] max-w-[680px] rounded-2xl sm:h-[260px]"
                 style={{ background: "rgba(255,255,255,0.12)" }}
               />
             )}
           </section>
 
-          <div className="px-2 py-12">
+          <div className="px-1 py-10 sm:px-2 sm:py-12">
             <div className="mb-8">
               <DocumentRenderer document={descriptionLongue} renderers={richTextRenderers} />
             </div>
@@ -135,7 +136,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             <h2 className="mb-4 mt-10 text-2xl font-extrabold tracking-tight text-ink">
               Fonctionnalités clés
             </h2>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {project.features.map((feature) => {
                 const Icon = FEATURE_ICONS[feature.icon] ?? Zap;
                 return (
@@ -175,7 +176,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           </div>
         </div>
         <Footer />
-      </div>
-    </ProjectDetailReveal>
+      </ProjectDetailReveal>
+    </div>
   );
 }
