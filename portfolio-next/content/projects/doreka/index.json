@@ -1,0 +1,51 @@
+{
+  "slug": "doreka",
+  "visible": true,
+  "ordre": 6,
+  "name": "Dorêka",
+  "longName": "Dorêka — Refonte du site d'un AMO en rénovation énergétique",
+  "description": "Refonte complète du site de Dorêka, opérateur AMO qui accompagne les copropriétés du financement jusqu'au vote de leurs travaux de rénovation énergétique.",
+  "hoverImage": "/images/projects/hover/doreka/hoverImage.png",
+  "tags": [
+    "Next.js",
+    "Tailwind CSS",
+    "GSAP",
+    "Claude Design"
+  ],
+  "bg": "#221A5C",
+  "textColor": "#FFFFFF",
+  "year": "2026",
+  "features": [
+    {
+      "icon": "layers",
+      "title": "Design system",
+      "description": "Palette, typographies, cartes, boutons et motifs issus de l'identité Dorêka, partagés par toutes les pages."
+    },
+    {
+      "icon": "rocket",
+      "title": "Animations au scroll",
+      "description": "Compteurs, timeline d'accompagnement qui se dessine et révélations progressives des sections, avec GSAP et ScrollTrigger."
+    },
+    {
+      "icon": "zap",
+      "title": "Simulation financière mise en avant",
+      "description": "Le reste à charge mensuel d'un copropriétaire est visible dès la page d'accueil."
+    },
+    {
+      "icon": "code",
+      "title": "Responsive",
+      "description": "Chaque page est pensée pour le mobile comme pour le desktop : navigation, timeline et cartes s'adaptent à toutes les tailles d'écran."
+    }
+  ],
+  "screenshots": [
+    "/images/projects/screenshots/doreka/screenshots/0.png",
+    "/images/projects/screenshots/doreka/screenshots/1.png",
+    "/images/projects/screenshots/doreka/screenshots/2.png",
+    "/images/projects/screenshots/doreka/screenshots/3.png"
+  ],
+  "videos": [
+    "/videos/projects/doreka/videos/0.mp4",
+    "/videos/projects/doreka/videos/1.mp4"
+  ],
+  "externalUrl": "https://doreka.eu"
+}
