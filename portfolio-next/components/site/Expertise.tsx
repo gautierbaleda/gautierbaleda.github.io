@@ -60,28 +60,35 @@ function ExpertiseIcon({ variant, color, hole, active }: { variant: ExpertiseKey
     return (
       <svg viewBox="0 0 48 48" className="h-full w-full" fill={color}>
         <g transform="translate(19,28)">
-          {GEAR_TEETH.map((deg) => (
-            <rect key={deg} x={-2} y={-12} width={4} height={4} rx={1} transform={`rotate(${deg})`} />
-          ))}
-          <circle r={9} />
-          <circle r={3.5} fill={hole} />
+          <g className="xp-gear-big">
+            {GEAR_TEETH.map((deg) => (
+              <rect key={deg} x={-2} y={-12} width={4} height={4} rx={1} transform={`rotate(${deg})`} />
+            ))}
+            <circle r={9} />
+            <circle r={3.5} fill={hole} />
+          </g>
         </g>
         <g transform="translate(33,17)">
-          {GEAR_TEETH.map((deg) => (
-            <rect key={deg} x={-1.5} y={-8.5} width={3} height={3} rx={0.8} transform={`rotate(${deg})`} />
-          ))}
-          <circle r={6} />
-          <circle r={2.3} fill={hole} />
+          <g className="xp-gear-small">
+            {GEAR_TEETH.map((deg) => (
+              <rect key={deg} x={-1.5} y={-8.5} width={3} height={3} rx={0.8} transform={`rotate(${deg})`} />
+            ))}
+            <circle r={6} />
+            <circle r={2.3} fill={hole} />
+          </g>
         </g>
       </svg>
     );
   }
   if (variant === "applications") {
     return (
-      <svg viewBox="0 0 48 48" className="h-full w-full" fill="none" stroke={color} strokeWidth={3.5} strokeLinecap="round" strokeLinejoin="round">
-        <rect x={7} y={10} width={34} height={28} rx={4} />
-        <path d="M7 18h34" />
-        <path d="M20 25l-4 4 4 4M28 25l4 4-4 4" strokeWidth={3} />
+      <svg viewBox="0 0 48 48" className="h-full w-full" fill="none" stroke={color} strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+        <rect x={6} y={9} width={36} height={30} rx={5} />
+        <path d="M6 16.5h36" />
+        {[11, 14.5, 18].map((cx) => (
+          <circle key={cx} cx={cx} cy={12.8} r={1} fill={color} stroke="none" />
+        ))}
+        <path d="M20 23.5l-4.5 4.5 4.5 4.5M28 23.5l4.5 4.5-4.5 4.5" />
       </svg>
     );
   }
@@ -90,7 +97,7 @@ function ExpertiseIcon({ variant, color, hole, active }: { variant: ExpertiseKey
       <path
         d="M10 12h22a5 5 0 0 1 5 5v11a5 5 0 0 1-5 5H20l-7 6v-6h-3a5 5 0 0 1-5-5V17a5 5 0 0 1 5-5z"
         stroke={color}
-        strokeWidth={3.2}
+        strokeWidth={2.4}
         strokeLinejoin="round"
       />
       <path
