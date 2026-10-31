@@ -8,7 +8,7 @@ describe("Expertise", () => {
     expect(screen.getByText("Automatisation")).toBeInTheDocument();
     expect(screen.getByText("Applications web")).toBeInTheDocument();
     expect(screen.getByText("Agents IA")).toBeInTheDocument();
-    expect(screen.getByText(/les ressaisies disparaissent/)).toBeInTheDocument();
+    expect(screen.getByText(/Fini le copier-coller entre vos logiciels/)).toBeInTheDocument();
   });
 
   it("opens the first panel by default and switches on click", () => {

@@ -15,7 +15,7 @@ const EXPERTISES: {
   {
     key: "automatisation",
     title: "Automatisation",
-    quote: "Je relie vos outils, et les ressaisies disparaissent.",
+    quote: "Fini le copier-coller entre vos logiciels.",
     items: [
       "Connecter vos applications entre elles et avec vos partenaires",
       "Générer vos documents en un clic : devis, rapports, slides, courriers, contrats",
