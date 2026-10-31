@@ -6,6 +6,7 @@ describe("Nav", () => {
     render(<Nav />);
     expect(screen.getByText("gautier baleda")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Accueil" })).toHaveAttribute("href", "/");
+    expect(screen.getByRole("link", { name: "Expertise" })).toHaveAttribute("href", "/#expertise");
     expect(screen.getByRole("link", { name: "Projets" })).toHaveAttribute("href", "/#projets");
     expect(screen.getByRole("link", { name: "Playground" })).toHaveAttribute("href", "/#play");
     expect(screen.getByRole("link", { name: "À Propos" })).toHaveAttribute("href", "/a-propos");

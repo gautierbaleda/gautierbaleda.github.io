@@ -6,12 +6,13 @@ import { Menu, X } from "lucide-react";
 
 const LINKS = [
   { href: "/", label: "Accueil", sectionId: null as string | null },
+  { href: "/#expertise", label: "Expertise", sectionId: "expertise" },
   { href: "/#projets", label: "Projets", sectionId: "projets" },
   { href: "/#play", label: "Playground", sectionId: "play" },
   { href: "/a-propos", label: "À Propos", sectionId: null as string | null },
 ];
 
-const SCROLL_SPY_SECTION_IDS = ["projets", "play"];
+const SCROLL_SPY_SECTION_IDS = ["expertise", "projets", "play"];
 
 export function Nav() {
   const pathname = usePathname();

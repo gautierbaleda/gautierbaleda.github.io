@@ -252,3 +252,37 @@ body {
   animation: pharampSprite 0.8s steps(4) infinite;
   flex-shrink: 0;
 }
+/* ── Expertise accordion: motion-graphics scenes ──────────────────────────
+   Each element reads its start delay from --d. Scenes are mounted only while
+   their panel is open, so the intro replays on every opening. */
+.xp-draw    { stroke-dasharray: 1; stroke-dashoffset: 1; animation: xpDraw 0.8s cubic-bezier(.6,0,.2,1) var(--d, 0s) forwards; }
+.xp-flow    { stroke-dasharray: 0.08 0.92; stroke-dashoffset: 1; opacity: 0; animation: xpFlow 1.6s linear var(--d, 0s) infinite; }
+.xp-pop     { transform-box: fill-box; transform-origin: center; animation: xpPop 0.55s cubic-bezier(.3,1.5,.5,1) var(--d, 0s) both; }
+.xp-origin-left  { transform-origin: left center; }
+.xp-origin-right { transform-origin: right center; }
+.xp-rise-svg { animation: xpRiseSvg 0.6s cubic-bezier(.2,.8,.2,1) var(--d, 0s) both; }
+.xp-grow-x  { transform-box: fill-box; transform-origin: left center; animation: xpGrowX 0.6s cubic-bezier(.2,.8,.2,1) var(--d, 0s) both; }
+.xp-grow-y  { transform-box: fill-box; transform-origin: bottom center; animation: xpGrowY 0.7s cubic-bezier(.3,1.3,.5,1) var(--d, 0s) both; }
+.xp-spin    { animation: gearCW 4s linear infinite; }
+.xp-ring    { transform-box: fill-box; transform-origin: top center; animation: xpRing 2.4s ease-in-out var(--d, 0s) infinite; }
+.xp-typing  { animation: xpTyping 1.25s linear var(--d, 0s) both; }
+.xp-bounce  { animation: xpBounce 0.9s ease-in-out infinite; }
+.xp-twinkle { transform-box: fill-box; transform-origin: center; animation: xpTwinkle 2.2s ease-in-out var(--d, 0s) infinite both; }
+.xp-item    { animation: xpItem 0.5s cubic-bezier(.2,.8,.2,1) var(--d, 0s) both; }
+
+@keyframes xpDraw    { to { stroke-dashoffset: 0; } }
+@keyframes xpFlow    { 0% { stroke-dashoffset: 1; opacity: 1; } 90% { opacity: 1; } 100% { stroke-dashoffset: 0.08; opacity: 0; } }
+@keyframes xpPop     { from { opacity: 0; transform: scale(0.4); } }
+@keyframes xpRiseSvg { from { opacity: 0; transform: translateY(14px); } }
+@keyframes xpGrowX   { from { transform: scaleX(0); } }
+@keyframes xpGrowY   { from { transform: scaleY(0); } }
+@keyframes xpRing    { 0%, 60%, 100% { transform: rotate(0); } 66% { transform: rotate(14deg); } 74% { transform: rotate(-12deg); } 82% { transform: rotate(8deg); } 90% { transform: rotate(-4deg); } }
+@keyframes xpTyping  { 0% { opacity: 0; } 12%, 88% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes xpBounce  { 0%, 60%, 100% { transform: translateY(0); opacity: 0.5; } 30% { transform: translateY(-4px); opacity: 1; } }
+@keyframes xpTwinkle { 0%, 100% { transform: scale(0.6) rotate(0); opacity: 0.4; } 50% { transform: scale(1.1) rotate(45deg); opacity: 1; } }
+@keyframes xpItem    { from { opacity: 0; transform: translateY(8px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="xp-"] { animation: none !important; stroke-dashoffset: 0; }
+  .xp-flow, .xp-typing { display: none; }
+}

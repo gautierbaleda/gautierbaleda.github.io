@@ -1,6 +1,7 @@
 import { Nav } from "@/components/site/Nav";
 import { Hero } from "@/components/site/Hero";
 import { Bio } from "@/components/site/Bio";
+import { Expertise } from "@/components/site/Expertise";
 import { Realisations } from "@/components/site/Realisations";
 import { Playground } from "@/components/site/Playground";
 import { Footer } from "@/components/site/Footer";
@@ -15,6 +16,7 @@ export default async function Page() {
       <Nav />
       <Hero />
       <Bio />
+      <Expertise />
       <Realisations projects={projects} />
       {playground}
       <Footer />
