@@ -43,7 +43,7 @@ export async function Playground() {
         <p className="mb-1 text-xs font-bold uppercase tracking-[0.1em] text-accent">
           PLAYGROUND
         </p>
-        <h2 className="mb-1 text-2xl font-bold text-ink">Petites apps à tester</h2>
+        <h2 className="mb-1 text-3xl font-extrabold leading-tight tracking-tight text-ink">Petites apps à tester</h2>
         <p className="text-sm text-muted">Des projets rapides, curieux, souvent utiles.</p>
       </div>
 

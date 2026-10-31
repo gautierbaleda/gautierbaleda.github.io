@@ -123,7 +123,7 @@ export function Realisations({ projects }: { projects: ProjectSummary[] }) {
           <p className="mb-1 text-xs font-bold uppercase tracking-[0.1em] text-accent">
             MES RÉALISATIONS
           </p>
-          <h2 className="text-2xl font-bold text-ink">Projets &amp; Use case</h2>
+          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-ink">Projets &amp; Use case</h2>
         </div>
 
         <div className="flex flex-1 flex-col items-stretch gap-4 lg:flex-row lg:gap-14" style={{ minHeight: 0 }}>

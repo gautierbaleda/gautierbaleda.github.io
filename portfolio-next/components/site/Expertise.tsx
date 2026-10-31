@@ -116,7 +116,7 @@ export function Expertise() {
     <section id="expertise" className="rounded-[20px] px-0 py-10 md:px-10">
       <div className="mb-10 max-w-2xl">
         <p className="mb-3 text-xs font-bold uppercase tracking-[0.1em] text-accent">EXPERTISE</p>
-        <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-ink sm:text-4xl">
+        <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-ink">
           Ce que je peux construire pour vous
         </h2>
       </div>

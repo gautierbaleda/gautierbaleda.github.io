@@ -8,7 +8,7 @@ export function Bio() {
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.1em] text-accent">
             QUI SUIS-JE
           </p>
-          <h2 className="mb-4 text-2xl font-bold text-ink">
+          <h2 className="mb-4 text-3xl font-extrabold leading-tight tracking-tight text-ink">
             Un Product Builder passionné par l&apos;impact
           </h2>
           <p className="mb-6 text-base leading-relaxed text-muted">
