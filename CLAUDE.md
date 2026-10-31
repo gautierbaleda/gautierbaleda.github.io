@@ -2,7 +2,7 @@
 
 ## État actuel
 
-Ce dossier contient l'export d'un portfolio conçu avec **Claude Design** (Anthropic), pas un projet de code standard. Il n'y a pas de repo git initialisé.
+Ce dossier contient l'export d'un portfolio conçu avec **Claude Design** (Anthropic), pas un projet de code standard.
 
 Fichiers principaux :
 - `Gautier Baleda - Portfolio.html` / `About Gautier Baleda.html` — exports **autonomes** (bundle complet : HTML/CSS/JS + assets en base64 dans des balises `<script type="__bundler/...">`). Ouvrables tels quels dans un navigateur, mais **non éditables directement** — ce sont des bundles générés, pas du code source.
