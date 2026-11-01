@@ -1,0 +1,7 @@
+L'application est une Power Apps Code App en React 19, Vite et Fluent UI v9, construite au-dessus d'une liste SharePoint « Tickets ». Fluent UI donne un rendu natif Power Platform, le thème clair/sombre et des composants accessibles.
+
+Les rôles sont déterminés par une liste d'emails de gestionnaires dans la configuration ; l'utilisateur connecté est obtenu via le SDK Power Apps. Les valeurs de référence (statuts, priorités, catégories) viennent de la configuration et sont fusionnées avec toute valeur rencontrée dans les tickets, pour que le kanban et les formulaires restent cohérents avec la liste réelle.
+
+Un mapper isole les noms de colonnes SharePoint du reste du code : une évolution de la liste ne touche qu'un seul fichier. La logique métier (rôles, filtres, règles de statut) est testée avec Vitest.
+
+L'assistant est un agent Copilot Studio publié dans Teams. Il clarifie d'abord les demandes trop vagues avant de chercher dans la base de connaissances, puis s'appuie sur deux actions du connecteur SharePoint — créer un élément et obtenir un élément — pour ouvrir un ticket ou consulter l'état d'un ticket existant.

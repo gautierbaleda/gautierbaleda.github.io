@@ -1,0 +1,52 @@
+{
+  "slug": "gogo-helper",
+  "visible": true,
+  "ordre": 9,
+  "name": "GoGo Helper",
+  "longName": "GoGo Helper — Helpdesk Power Apps et assistant Copilot",
+  "description": "Solution de ticketing helpdesk en Power Apps Code App sur une liste SharePoint, complétée par un assistant Copilot accessible depuis Teams.",
+  "hoverImage": null,
+  "tags": [
+    "Power Apps",
+    "React",
+    "SharePoint",
+    "Copilot Studio",
+    "Teams"
+  ],
+  "bg": "#0F2D4A",
+  "textColor": "#FFFFFF",
+  "year": "2026",
+  "features": [
+    {
+      "icon": "users",
+      "title": "Espace demandeur",
+      "description": "Soumission d'une demande de support et suivi de l'avancement de ses propres tickets."
+    },
+    {
+      "icon": "layers",
+      "title": "Kanban gestionnaire",
+      "description": "Vue kanban ou liste, filtres et recherche, assignation et changement de statut par glisser-déposer."
+    },
+    {
+      "icon": "zap",
+      "title": "Assistant Copilot dans Teams",
+      "description": "Un agent répond aux questions à partir de la base de connaissances SharePoint et crée un ticket si l'incident n'est pas résolu."
+    },
+    {
+      "icon": "code",
+      "title": "Modèle de données isolé",
+      "description": "Un seul module connaît les colonnes SharePoint : une évolution de la liste ne touche qu'un fichier."
+    }
+  ],
+  "screenshots": [
+    "/images/projects/screenshots/gogo-helper/screenshots/0.png",
+    "/images/projects/screenshots/gogo-helper/screenshots/1.png",
+    "/images/projects/screenshots/gogo-helper/screenshots/2.png",
+    "/images/projects/screenshots/gogo-helper/screenshots/3.png",
+    "/images/projects/screenshots/gogo-helper/screenshots/4.png",
+    "/images/projects/screenshots/gogo-helper/screenshots/5.webp",
+    "/images/projects/screenshots/gogo-helper/screenshots/6.webp"
+  ],
+  "videos": [],
+  "externalUrl": "https://github.com/DoubleRiz/gogo-helper"
+}
