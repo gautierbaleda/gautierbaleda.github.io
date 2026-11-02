@@ -1,6 +1,6 @@
 {
   "slug": "jujube",
-  "visible": true,
+  "visible": false,
   "ordre": 7,
   "name": "Jujube",
   "longName": "Jujube — Gestion de foyer à deux",
@@ -42,5 +42,6 @@
     "/images/projects/screenshots/jujube/screenshots/2.png",
     "/images/projects/screenshots/jujube/screenshots/3.png"
   ],
+  "videos": [],
   "externalUrl": "https://github.com/DoubleRiz/jujube"
 }
