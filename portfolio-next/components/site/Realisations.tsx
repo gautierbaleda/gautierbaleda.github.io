@@ -4,7 +4,7 @@ import Image from "next/image";
 import { type ProjectSummary } from "@/content/projects";
 import { TechTag } from "@/components/site/TechTag";
 
-const DESKTOP_QUERY = "(min-width: 1024px)";
+const SCROLL_STEP_PX = 260;
 
 function ProjectPreview({ project }: { project: ProjectSummary }) {
   if (project.hoverImage) {
@@ -61,7 +61,9 @@ function ProjectPreview({ project }: { project: ProjectSummary }) {
 }
 
 export function Realisations({ projects }: { projects: ProjectSummary[] }) {
-  const [active, setActive] = useState<ProjectSummary | null>(null);
+  // Un projet est sélectionné par défaut ; cliquer ailleurs le désélectionne.
+  const [active, setActive] = useState<ProjectSummary | null>(projects[0] ?? null);
+  const [previewEl, setPreview] = useState<HTMLDivElement | null>(null);
 
   const [wrapperEl, setStickyWrapper] = useState<HTMLDivElement | null>(null);
   const [sectionEl, setSection] = useState<HTMLElement | null>(null);
@@ -69,6 +71,10 @@ export function Realisations({ projects }: { projects: ProjectSummary[] }) {
   const [listInnerEl, setListInner] = useState<HTMLDivElement | null>(null);
 
   const overflowRef = useRef(0);
+  // Distance de scroll pendant laquelle la section reste collée : assez longue
+  // pour faire défiler la liste et passer d'un projet à l'autre.
+  const scrollDistanceRef = useRef(0);
+  const scrollIndexRef = useRef(0);
   const wrapperAbsTopRef = useRef(0);
   const stickyTopRef = useRef(0);
 
@@ -78,21 +84,32 @@ export function Realisations({ projects }: { projects: ProjectSummary[] }) {
     const containerH = listContainerEl.clientHeight;
     const overflow = Math.max(0, innerH - containerH);
     overflowRef.current = overflow;
+    const distance = Math.max(overflow, (projects.length - 1) * SCROLL_STEP_PX);
+    scrollDistanceRef.current = distance;
     // La hauteur et l'offset « collant » dépendent du breakpoint (nav plus
     // basse en mobile) : on les relit depuis la section elle-même.
-    wrapperEl.style.height = `${sectionEl.offsetHeight + overflow}px`;
+    wrapperEl.style.height = `${sectionEl.offsetHeight + distance}px`;
     stickyTopRef.current = parseFloat(getComputedStyle(sectionEl).top) || 0;
     wrapperAbsTopRef.current = wrapperEl.getBoundingClientRect().top + window.scrollY;
-  }, [wrapperEl, sectionEl, listContainerEl, listInnerEl]);
+  }, [wrapperEl, sectionEl, listContainerEl, listInnerEl, projects.length]);
 
   const updateListScroll = useCallback(() => {
-    if (!overflowRef.current || !listInnerEl) return;
+    const distance = scrollDistanceRef.current;
+    if (!distance || !listInnerEl) return;
     const progress = Math.min(
-      overflowRef.current,
+      distance,
       Math.max(0, window.scrollY - (wrapperAbsTopRef.current - stickyTopRef.current))
-    );
-    listInnerEl.style.transform = `translateY(-${progress}px)`;
-  }, [listInnerEl]);
+    ) / distance;
+    listInnerEl.style.transform = `translateY(-${progress * overflowRef.current}px)`;
+
+    // Au scroll, les projets se sélectionnent un à un. On ne touche à la
+    // sélection que quand l'index change, pour qu'un clic reste respecté.
+    const index = Math.round(progress * (projects.length - 1));
+    if (index !== scrollIndexRef.current) {
+      scrollIndexRef.current = index;
+      setActive(projects[index]);
+    }
+  }, [listInnerEl, projects]);
 
   useEffect(() => {
     if (!wrapperEl || !sectionEl || !listContainerEl || !listInnerEl) return;
@@ -111,7 +128,16 @@ export function Realisations({ projects }: { projects: ProjectSummary[] }) {
     };
   }, [wrapperEl, sectionEl, listContainerEl, listInnerEl, updateStickyLayout, updateListScroll]);
 
-  const isDesktop = () => window.matchMedia(DESKTOP_QUERY).matches;
+  useEffect(() => {
+    if (!previewEl || !listContainerEl) return;
+    const onPointerDown = (e: PointerEvent) => {
+      const target = e.target as Node;
+      if (previewEl.contains(target) || listContainerEl.contains(target)) return;
+      setActive(null);
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, [previewEl, listContainerEl]);
 
   return (
     <div id="projets" ref={setStickyWrapper}>
@@ -127,7 +153,7 @@ export function Realisations({ projects }: { projects: ProjectSummary[] }) {
         </div>
 
         <div className="flex flex-1 flex-col items-stretch gap-4 lg:flex-row lg:gap-14" style={{ minHeight: 0 }}>
-          <div className="relative shrink-0 basis-[42%] overflow-hidden rounded-2xl bg-[#F5F5F7] lg:flex-[0_0_44%]">
+          <div ref={setPreview} className="relative shrink-0 basis-[42%] overflow-hidden rounded-2xl bg-[#F5F5F7] lg:flex-[0_0_44%]">
             {active ? (
               <a
                 href={`/projets/${active.slug}`}
@@ -140,10 +166,7 @@ export function Realisations({ projects }: { projects: ProjectSummary[] }) {
               <div className="flex h-full flex-col items-center justify-center gap-2 lg:gap-4">
                 <div className="umbreon-walker max-lg:scale-75" />
                 <p className="text-sm font-semibold text-[#8E8E93]">En attente…</p>
-                <p className="text-xs text-[#B8B8BE]">
-                  <span className="lg:hidden">Touche un projet</span>
-                  <span className="hidden lg:inline">Survole un projet</span>
-                </p>
+                <p className="text-xs text-[#B8B8BE]">Sélectionne un projet</p>
               </div>
             )}
           </div>
@@ -159,21 +182,16 @@ export function Realisations({ projects }: { projects: ProjectSummary[] }) {
                   <a
                     href={`/projets/${p.slug}`}
                     data-testid={`project-row-${p.slug}`}
-                    onMouseEnter={() => {
-                      if (isDesktop()) setActive(p);
-                    }}
-                    onMouseLeave={() => {
-                      if (isDesktop()) setActive(null);
-                    }}
+                    aria-current={active?.slug === p.slug ? "true" : undefined}
                     onClick={(e) => {
-                      // En mobile, le premier tap affiche la prévisualisation ;
-                      // un second tap sur le même projet ouvre sa page.
-                      if (isDesktop() || active?.slug === p.slug) return;
+                      // Le premier clic sélectionne le projet (prévisualisation) ;
+                      // un second clic sur le projet sélectionné ouvre sa page.
+                      if (active?.slug === p.slug) return;
                       e.preventDefault();
                       setActive(p);
                     }}
-                    className={`flex items-center gap-4 rounded-2xl px-2 py-4 hover:bg-black/[0.03] sm:gap-5 sm:px-4 lg:py-[22px] ${
-                      active?.slug === p.slug ? "max-lg:bg-black/[0.04]" : ""
+                    className={`flex items-center gap-4 rounded-2xl px-2 py-4 sm:gap-5 sm:px-4 lg:py-[22px] ${
+                      active?.slug === p.slug ? "bg-black/[0.04]" : ""
                     }`}
                   >
                     <div className="min-w-0 flex-1">

@@ -8,6 +8,6 @@ describe("Footer", () => {
       "href",
       "mailto:gautier.baleda@gmail.com"
     );
-    expect(screen.getByText(/© 2025 Gautier Baleda/)).toBeInTheDocument();
+    expect(screen.getByText(/© 2026 Gautier Baleda/)).toBeInTheDocument();
   });
 });

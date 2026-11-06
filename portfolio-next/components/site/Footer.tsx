@@ -53,7 +53,7 @@ export function Footer() {
           </div>
         </div>
         <p className="mt-12 text-xs text-[#48484A]">
-          © 2025 Gautier Baleda. Tous droits réservés.
+          © 2026 Gautier Baleda. Tous droits réservés.
         </p>
       </div>
     </section>
