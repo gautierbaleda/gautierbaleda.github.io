@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
   pageExtensions: isDev ? ["dev.tsx", "dev.ts", "tsx", "ts", "jsx", "js"] : ["tsx", "ts", "jsx", "js"],
   // GitHub Pages ne sert que des fichiers : pas d'optimisation d'images à la volée.
   images: { unoptimized: true },
+  experimental: {
+    agentUpgrade: "security",
+  },
 };
 
 export default nextConfig;
