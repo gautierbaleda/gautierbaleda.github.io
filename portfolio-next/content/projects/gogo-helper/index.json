@@ -44,9 +44,16 @@
     "/images/projects/screenshots/gogo-helper/screenshots/2.png",
     "/images/projects/screenshots/gogo-helper/screenshots/3.png",
     "/images/projects/screenshots/gogo-helper/screenshots/4.png",
+    "/images/projects/screenshots/gogo-helper/screenshots/9.webp",
+    "/images/projects/screenshots/gogo-helper/screenshots/10.webp",
+    "/images/projects/screenshots/gogo-helper/screenshots/11.webp",
     "/images/projects/screenshots/gogo-helper/screenshots/5.webp",
-    "/images/projects/screenshots/gogo-helper/screenshots/6.webp"
+    "/images/projects/screenshots/gogo-helper/screenshots/6.webp",
+    "/images/projects/screenshots/gogo-helper/screenshots/7.webp",
+    "/images/projects/screenshots/gogo-helper/screenshots/8.webp"
   ],
-  "videos": [],
+  "videos": [
+    "/videos/projects/gogo-helper/videos/0.mp4"
+  ],
   "externalUrl": "https://github.com/DoubleRiz/gogo-helper"
 }
