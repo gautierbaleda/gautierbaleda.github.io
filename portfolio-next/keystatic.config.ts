@@ -1,4 +1,24 @@
-import { config, collection, fields } from "@keystatic/core";
+import { createElement } from "react";
+import { config, collection, component, fields } from "@keystatic/core";
+
+// Bloc « Vidéo » insérable dans le texte d'un projet (lecture auto, muette, en boucle).
+const videoBlock = component({
+  label: "Vidéo",
+  schema: {
+    src: fields.text({
+      label: "Chemin de la vidéo",
+      description: "Ex. /videos/projects/<slug>/videos/0.mp4",
+    }),
+    caption: fields.text({ label: "Légende (optionnelle)" }),
+  },
+  preview: (props) =>
+    createElement("video", {
+      src: props.fields.src.value,
+      muted: true,
+      controls: true,
+      style: { width: "100%", borderRadius: 12 },
+    }),
+});
 
 export default config({
   storage: {
@@ -69,6 +89,7 @@ export default config({
         approche: fields.document({
           label: "Approche et solution",
           formatting: true,
+          componentBlocks: { video: videoBlock },
           images: {
             directory: "public/images/projects",
             publicPath: "/images/projects/",

@@ -1,7 +1,7 @@
 {
   "slug": "medialog",
   "visible": true,
-  "ordre": 4,
+  "ordre": 5,
   "name": "Medialog",
   "longName": "Medialog — Agent IA interne",
   "description": "Agent IA interne pour une société de conférences — consultation de la base intervenants, mise à jour de statuts et envoi de rappels ciblés, avec validation humaine obligatoire.",

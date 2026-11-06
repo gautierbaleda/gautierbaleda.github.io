@@ -49,6 +49,24 @@ const richTextRenderers = {
   },
 };
 
+const componentBlockRenderers = {
+  video: ({ src, caption }: { src: string; caption: string }) => (
+    <figure className="my-6">
+      <video
+        src={src}
+        aria-label={caption || "Vidéo de démonstration"}
+        autoPlay
+        loop
+        muted
+        playsInline
+        controls
+        className="w-full rounded-2xl bg-black/5"
+      />
+      {caption && <figcaption className="mt-2 text-center text-sm text-muted-2">{caption}</figcaption>}
+    </figure>
+  ),
+};
+
 // Le contenu Keystatic est lu sur le système de fichiers ; il n'existe plus au
 // runtime dans la fonction serverless. On prégénère donc chaque page au build.
 export async function generateStaticParams() {
@@ -132,7 +150,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             <h2 className="mb-3 mt-10 text-2xl font-extrabold tracking-tight text-ink">
               Approche et solution
             </h2>
-            <DocumentRenderer document={approche} renderers={richTextRenderers} />
+            <DocumentRenderer document={approche} renderers={richTextRenderers} componentBlocks={componentBlockRenderers} />
 
             <h2 className="mb-4 mt-10 text-2xl font-extrabold tracking-tight text-ink">
               Fonctionnalités clés

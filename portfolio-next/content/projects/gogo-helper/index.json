@@ -1,7 +1,7 @@
 {
   "slug": "gogo-helper",
   "visible": true,
-  "ordre": 9,
+  "ordre": 3,
   "name": "GoGo Helper",
   "longName": "GoGo Helper — Helpdesk Power Apps et assistant Copilot",
   "description": "Solution de ticketing helpdesk en Power Apps Code App sur une liste SharePoint, complétée par un assistant Copilot accessible depuis Teams.",
@@ -53,8 +53,6 @@
     "/images/projects/screenshots/gogo-helper/screenshots/7.webp",
     "/images/projects/screenshots/gogo-helper/screenshots/8.webp"
   ],
-  "videos": [
-    "/videos/projects/gogo-helper/videos/0.mp4"
-  ],
+  "videos": [],
   "externalUrl": "https://github.com/DoubleRiz/gogo-helper"
 }
