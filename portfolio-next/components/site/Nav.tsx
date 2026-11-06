@@ -51,18 +51,18 @@ export function Nav() {
   return (
     <header className="sticky top-0 z-50 flex h-20 w-full items-center justify-center md:h-[100px] md:px-12">
       <nav className="relative flex h-14 w-full max-w-[1100px] items-center justify-between rounded-full bg-white pl-5 pr-2 shadow-[0_4px_24px_rgba(0,0,0,0.08)] md:h-[60px] md:pl-8">
-        <Link href="/" className="flex items-center gap-2 no-underline" onClick={() => setMenuOpen(false)}>
+        <Link href="/" className="flex shrink-0 items-center gap-2 whitespace-nowrap no-underline" onClick={() => setMenuOpen(false)}>
           <span className="h-2.5 w-2.5 rounded-full bg-accent" />
           <span className="text-sm font-semibold lowercase tracking-[-0.01em] text-accent">
             gautier baleda
           </span>
         </Link>
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden items-center gap-1 xl:flex">
           {LINKS.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className={`flex h-10 items-center rounded-full px-5 text-sm font-medium no-underline ${
+              className={`flex h-10 items-center whitespace-nowrap rounded-full px-5 text-sm font-medium no-underline ${
                 isActive(l) ? "bg-accent text-ink" : "text-accent"
               }`}
             >
@@ -73,7 +73,7 @@ export function Nav() {
         <div className="flex items-center gap-1">
           <Link
             href="/#contact"
-            className="hidden h-10 items-center rounded-full bg-accent px-6 text-sm font-semibold text-ink no-underline lg:flex"
+            className="hidden h-10 items-center whitespace-nowrap rounded-full bg-accent px-6 text-sm font-semibold text-ink no-underline xl:flex"
           >
             Contact
           </Link>
@@ -82,14 +82,14 @@ export function Nav() {
             aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((open) => !open)}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-ink lg:hidden"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-ink xl:hidden"
           >
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
 
         {menuOpen && (
-          <div className="absolute inset-x-0 top-[calc(100%+8px)] flex flex-col gap-1 rounded-3xl bg-white p-2 shadow-[0_4px_24px_rgba(0,0,0,0.08)] lg:hidden">
+          <div className="absolute inset-x-0 top-[calc(100%+8px)] flex flex-col gap-1 rounded-3xl bg-white p-2 shadow-[0_4px_24px_rgba(0,0,0,0.08)] xl:hidden">
             {LINKS.map((l) => (
               <Link
                 key={l.href}

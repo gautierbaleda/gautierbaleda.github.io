@@ -45,7 +45,7 @@ function CardIcon({ variant }: { variant: Variant }) {
         <path className="code-left" d="M42,34 L28,50 L42,66" />
         <path className="code-right" d="M58,34 L72,50 L58,66" />
         <g className="code-inner" stroke="none" fill="#1D1D1F">
-          <text x="50" y="53" textAnchor="middle" dominantBaseline="central" fontFamily="Inter,system-ui,sans-serif" fontSize={36} fontWeight={800} letterSpacing={-1}>
+          <text x="50" y="53" textAnchor="middle" dominantBaseline="central" style={{ fontFamily: "var(--font-sans), system-ui, sans-serif" }} fontSize={36} fontWeight={800} letterSpacing={-1}>
             /hey
           </text>
         </g>
