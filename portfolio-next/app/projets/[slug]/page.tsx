@@ -63,6 +63,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     notFound();
     return null;
   }
+  const heroImage = project.pageImage ?? project.hoverImage;
 
   const [problematique, approche, descriptionLongue] = await Promise.all([
     project.problematique(),
@@ -102,10 +103,10 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                 <TechTag key={tag} tag={tag} />
               ))}
             </div>
-            {project.hoverImage ? (
+            {heroImage ? (
               <div className="relative mx-auto mt-10 aspect-[2/3] w-full max-w-[320px] overflow-hidden rounded-2xl">
                 <Image
-                  src={project.hoverImage}
+                  src={heroImage}
                   alt={project.longName}
                   fill
                   sizes="320px"

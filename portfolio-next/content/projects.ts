@@ -16,6 +16,7 @@ export type Project = {
   longName: string;
   description: string;
   hoverImage: string | null;
+  pageImage: string | null;
   descriptionLongue: () => Promise<DocumentElement[]>;
   tags: string[];
   bg: string;
@@ -53,6 +54,7 @@ function toProject(slug: string, entry: Awaited<ReturnType<typeof reader.collect
     longName: entry!.longName,
     description: entry!.description,
     hoverImage: entry!.hoverImage ?? null,
+    pageImage: entry!.pageImage ?? null,
     descriptionLongue,
     tags: [...entry!.tags],
     bg: entry!.bg,

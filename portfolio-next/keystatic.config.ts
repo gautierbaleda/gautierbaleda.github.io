@@ -36,6 +36,12 @@ export default config({
           directory: "public/images/projects/hover",
           publicPath: "/images/projects/hover/",
         }),
+        pageImage: fields.image({
+          label: "Visuel de la page projet",
+          description: "Format portrait 2:3 (ex. 1000x1500px), affiché en haut de la page projet. Si vide, le visuel au survol est utilisé.",
+          directory: "public/images/projects/page",
+          publicPath: "/images/projects/page/",
+        }),
         descriptionLongue: fields.document({
           label: "Description longue",
           description: "Décrit plus en détail ce que fait la solution, fonctionnellement.",

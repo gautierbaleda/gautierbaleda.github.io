@@ -11,6 +11,7 @@ const projects: ProjectSummary[] = [
     longName: "Projet Un",
     description: "Description courte.",
     hoverImage: null,
+    pageImage: null,
     tags: ["No-code"],
     bg: "#1A1A2E",
     textColor: "#FFFFFF",
