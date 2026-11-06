@@ -5,7 +5,7 @@
   "name": "GoGo Helper",
   "longName": "GoGo Helper — Helpdesk Power Apps et assistant Copilot",
   "description": "Solution de ticketing helpdesk en Power Apps Code App sur une liste SharePoint, complétée par un assistant Copilot accessible depuis Teams.",
-  "hoverImage": null,
+  "hoverImage": "/images/projects/hover/gogo-helper/hoverImage.png",
   "tags": [
     "Power Apps",
     "React",
