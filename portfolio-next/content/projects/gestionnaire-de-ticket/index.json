@@ -1,6 +1,6 @@
 {
   "slug": "gestionnaire-de-ticket",
-  "visible": true,
+  "visible": false,
   "ordre": 9,
   "name": "Gestionnaire de ticket",
   "longName": "Gestionnaire de ticket — Support client automatisé",

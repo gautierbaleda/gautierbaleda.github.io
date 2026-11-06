@@ -1,0 +1,23 @@
+{
+  "title": "Unison",
+  "visible": true,
+  "ordre": 600,
+  "tools": [
+    "React",
+    "TypeScript",
+    "Supabase",
+    "PWA"
+  ],
+  "description": "PWA pour musiciens — chansons, transposition d'accords, setlists exportables et gestion de groupes, en React et Supabase.",
+  "image": "/images/playground/unison/image.png",
+  "screenshots": [
+    "/images/playground/screenshots/unison/screenshots/0.png",
+    "/images/playground/screenshots/unison/screenshots/1.png",
+    "/images/playground/screenshots/unison/screenshots/2.png",
+    "/images/playground/screenshots/unison/screenshots/3.png",
+    "/images/playground/screenshots/unison/screenshots/4.png",
+    "/images/playground/screenshots/unison/screenshots/5.png"
+  ],
+  "externalUrl": "https://chord-craft.vercel.app/",
+  "bg": "#1A2333"
+}

@@ -1,6 +1,6 @@
 {
   "title": "Gogodoro",
-  "visible": true,
+  "visible": false,
   "ordre": 600,
   "tools": [
     "React",

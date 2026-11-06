@@ -1,4 +1,4 @@
-import { FileText, Mic, Heart, Swords, Palette, Timer, Grid3x3, type LucideIcon } from "lucide-react";
+import { FileText, Mic, Heart, Swords, Palette, Timer, Grid3x3, Music, type LucideIcon } from "lucide-react";
 import { PlaygroundCard } from "./PlaygroundCard";
 import { getPlaygroundApps } from "@/content/playground";
 
@@ -28,6 +28,9 @@ const PRESENTATION: Record<string, { front: React.ReactNode }> = {
   },
   gogodoro: {
     front: <IconFront icon={Timer} />,
+  },
+  unison: {
+    front: <IconFront icon={Music} />,
   },
   "morpion-multijoueur": {
     front: <IconFront icon={Grid3x3} />,

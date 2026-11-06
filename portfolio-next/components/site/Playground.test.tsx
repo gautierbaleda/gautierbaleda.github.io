@@ -10,6 +10,7 @@ describe("Playground", () => {
     expect(screen.getByText("Faire-part M & G")).toBeInTheDocument();
     expect(screen.getByText("Epic Rubic")).toBeInTheDocument();
     expect(screen.getByText("Chromapix")).toBeInTheDocument();
-    expect(screen.getByText("Gogodoro")).toBeInTheDocument();
+    expect(screen.getByText("Unison")).toBeInTheDocument();
+    expect(screen.queryByText("Gogodoro")).not.toBeInTheDocument();
   });
 });
